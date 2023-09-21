@@ -20,7 +20,7 @@ export default function Navigation() {
               <li key={link.name}>
                 <Link
                   className={cn(
-                    'grid place-items-center gap-1 rounded-lg p-2',
+                    'grid place-items-center gap-1 rounded-lg p-2 font-semibold',
                     link.color,
                   )}
                   href={link.href}

@@ -20,7 +20,9 @@ export default function SideBar({ links }: { links: LinkType[] }) {
                   href={link.href}
                 >
                   <SVGWapper>{link.icon}</SVGWapper>
-                  <p className="text-sm">{link.name}</p>
+                  <p className="text-right text-sm font-semibold">
+                    {link.name.toUpperCase()}
+                  </p>
                 </Link>
               </li>
             ))}
