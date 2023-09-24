@@ -1,6 +1,6 @@
 'use client';
 
-import SVGWapper from '@/components/icons/svg-wapper';
+import { NavSvgWrapper } from '@/components/icons/svg-wapper';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import SideBar from './SideBar';
@@ -26,7 +26,7 @@ export default function Navigation() {
                   href={link.href}
                   aria-disabled={link.disable}
                 >
-                  <SVGWapper>{link.icon}</SVGWapper>
+                  <NavSvgWrapper>{link.icon}</NavSvgWrapper>
                   <p className="text-xs">{link.name.toUpperCase()}</p>
                 </Link>
               </li>
