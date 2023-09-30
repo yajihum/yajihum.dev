@@ -1,6 +1,5 @@
 import { SVGElement } from '../icons';
 import { SnsSvgWrapper } from '../icons/svg-wapper';
-import { Separator } from '../ui/separator';
 
 const snsLinks = [
   {
@@ -33,16 +32,17 @@ const snsLinks = [
 
 export default function SnsLinks() {
   return (
-    <div className="mt-6 flex gap-3 text-lg text-neutral-500 ">
-      {snsLinks.map((link, index) => (
-        <a href={link.url} key={link.name} className="flex gap-3">
+    <ul className="mt-6 grid grid-cols-2 gap-3 text-lg text-neutral-500 md:grid-cols-4 ">
+      {snsLinks.map((link) => (
+        <li key={link.name} className="flex gap-3">
           <SnsSvgWrapper fill={link.fill}>{link.icon}</SnsSvgWrapper>
-          <p className="hover:underline">{link.userName}</p>
-          {index !== snsLinks.length - 1 && (
-            <Separator orientation="vertical" className="mx-2" />
-          )}
-        </a>
+          <a href={link.url}>
+            <p className="text-base hover:underline md:text-lg">
+              {link.userName}
+            </p>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

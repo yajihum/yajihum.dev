@@ -14,9 +14,9 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
-      <section className="grid grid-cols-1 place-items-center gap-10 py-24 md:grid-cols-2">
+      <section className="grid grid-cols-1 place-items-center gap-10 py-16 md:grid-cols-2">
         <section className="my-auto">
-          <h2 className="text-5xl font-semibold md:text-7xl">こんちゃ！</h2>
+          <h2 className="text-5xl font-semibold lg:text-7xl">こんちゃ！</h2>
         </section>
         <Image
           src="https://images.yajium.day/rorisu.png"
@@ -25,11 +25,12 @@ export default function Home() {
           alt="正面から見て左に体を傾け左腕をあげているロリスの画像"
         />
       </section>
-      <section className="grid grid-cols-1 place-items-stretch gap-10">
-        <Card className="mx-10">
+      <section className="grid grid-cols-1 place-items-stretch gap-2 px-4">
+        <h2 className="text-2xl font-semibold text-neutral-500">ABOUT</h2>
+        <Card className="">
           <CardHeader className="grid grid-cols-1 gap-3">
             <CardTitle>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-2 text-xl">
                 <Avatar>
                   <AvatarImage
                     src="https://github.com/yajihum.png"
@@ -38,7 +39,7 @@ export default function Home() {
                   />
                   <AvatarFallback>hum</AvatarFallback>
                 </Avatar>
-                やじはむ（yajihum）
+                やじはむ
               </p>
             </CardTitle>
             <CardDescription>
