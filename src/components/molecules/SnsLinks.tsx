@@ -3,7 +3,7 @@ import { SnsSvgWrapper } from '../icons/svg-wapper';
 
 const snsLinks = [
   {
-    name: 'x',
+    name: 'X',
     url: 'https://twitter.com/yajihum',
     icon: SVGElement.x,
     userName: '@yajihum',
@@ -32,12 +32,15 @@ const snsLinks = [
 
 export default function SnsLinks() {
   return (
-    <ul className="mt-6 grid grid-cols-2 gap-3 text-lg text-neutral-500 md:grid-cols-4 ">
+    <ul className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
       {snsLinks.map((link) => (
-        <li key={link.name} className="flex gap-3">
-          <SnsSvgWrapper fill={link.fill}>{link.icon}</SnsSvgWrapper>
-          <a href={link.url}>
-            <p className="text-base hover:underline md:text-lg">
+        <li key={link.name} className="flex gap-2 md:gap-3">
+          <SnsSvgWrapper fill={link.fill} className="rounded-md bg-white p-1.5">
+            {link.icon}
+          </SnsSvgWrapper>
+          <a href={link.url} className="grid grid-cols-1">
+            <p className="text-sm">{link.name}</p>
+            <p className="text-xs text-neutral-400 hover:underline md:text-sm">
               {link.userName}
             </p>
           </a>

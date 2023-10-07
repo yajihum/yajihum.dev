@@ -26,8 +26,8 @@ export default function Home() {
         />
       </section>
       <section className="grid grid-cols-1 place-items-stretch gap-2 px-4">
-        <h2 className="text-2xl font-semibold text-neutral-500">ABOUT</h2>
-        <Card className="">
+        <h2 className="text-2xl font-semibold">ABOUT</h2>
+        <Card className="bg-neutral-900 text-white backdrop-blur transition-colors">
           <CardHeader className="grid grid-cols-1 gap-3">
             <CardTitle>
               <p className="flex items-center gap-2 text-xl">
@@ -42,8 +42,8 @@ export default function Home() {
                 やじはむ
               </p>
             </CardTitle>
-            <CardDescription>
-              EdTech企業で働く2年目フロントエンドエンジ🐱
+            <CardDescription className="text-neutral-200">
+              {`I'm a frontend engineer working at an EdTech company.😴`}
             </CardDescription>
           </CardHeader>
           <Separator className="my-2" />

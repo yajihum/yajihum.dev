@@ -35,7 +35,7 @@ export function SnsSvgWrapper({
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       viewBox="0 0 24 24"
-      className={cn('h-6 w-6', className)}
+      className={cn('h-9 w-9 md:h-11 md:w-11', className)}
       fill={fill}
     >
       {children}

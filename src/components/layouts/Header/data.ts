@@ -24,9 +24,7 @@ export function useLinks() {
     const isCurrent =
       (pathname === '/' && link.name === 'home') ||
       pathname.includes(link.name);
-    const color = isCurrent
-      ? 'text-blue-500 bg-blue-100'
-      : 'text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900';
+    const color = isCurrent ? 'border' : 'text-neutral-300 hover:underline';
     return {
       ...link,
       disable: isCurrent ? true : false,
