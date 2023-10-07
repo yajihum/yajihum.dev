@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t p-4 text-center text-neutral-500">
+    <footer className="border-t border-neutral-600 p-4 text-center text-neutral-300">
       <p className="font-semibold">@2023 yajihum</p>
     </footer>
   );

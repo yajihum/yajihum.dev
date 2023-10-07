@@ -9,7 +9,7 @@ export default function BasicLayout({
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
-      <main className="container mx-auto max-w-4xl px-4 md:px-0">
+      <main className="container mx-auto max-w-3xl px-4 md:px-0">
         <Container>{children}</Container>
       </main>
       <Footer />
