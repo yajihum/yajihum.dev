@@ -12,8 +12,8 @@ export type LinkType = {
 
 const linkDatas = [
   { name: 'home', href: '#', icon: SVGElement.home, current: true },
-  { name: 'about', href: '#', icon: SVGElement.user, current: false },
-  { name: 'works', href: '#', icon: SVGElement.work, current: false },
+  { name: 'about', href: '#about', icon: SVGElement.user, current: false },
+  { name: 'works', href: '#works', icon: SVGElement.work, current: false },
   { name: 'blog', href: '#', icon: SVGElement.blog, current: false },
 ];
 

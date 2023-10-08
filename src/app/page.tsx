@@ -31,7 +31,9 @@ export default function Home() {
           className="grid grid-cols-1 place-items-stretch gap-3"
           aria-label="About me"
         >
-          <h2 className="px-2 text-2xl font-semibold">ABOUT</h2>
+          <h2 id="about" className="scroll-mt-20 px-2 text-2xl font-semibold">
+            ABOUT
+          </h2>
           <Card className="border border-neutral-700 bg-neutral-900 text-white backdrop-blur transition-colors">
             <CardHeader className="grid grid-cols-1 gap-3">
               <CardTitle>
@@ -52,7 +54,7 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <Separator className="my-2 bg-neutral-700" />
-            <CardContent>
+            <CardContent className="px-8 py-4 md:p-6">
               <SnsLinks />
             </CardContent>
             <CardFooter className="flex justify-between"></CardFooter>
@@ -62,8 +64,18 @@ export default function Home() {
           className="grid grid-cols-1 place-items-stretch gap-3"
           aria-label="works"
         >
-          <h2 className="px-2 text-2xl font-semibold">WORKS</h2>
+          <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
+            WORKS
+          </h2>
           <WorksCards />
+        </section>
+        <section
+          className="grid grid-cols-1 place-items-stretch gap-3"
+          aria-label="works"
+        >
+          <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
+            Blog
+          </h2>
         </section>
       </div>
     </>
