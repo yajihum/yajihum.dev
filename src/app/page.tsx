@@ -1,3 +1,6 @@
+import { SVGElement } from '@/components/icons';
+import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
+import PostLinks from '@/components/molecules/PostLinks';
 import SnsLinks from '@/components/molecules/SnsLinks';
 import WorksCards from '@/components/molecules/WorksCards';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -10,9 +13,15 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { getPosts } from '@/lib/blog';
 import Image from 'next/image';
 
 export default function Home() {
+  const newPosts = getPosts(
+    ['title', 'description', 'pubDate', 'tags', 'icon', 'slug'],
+    4,
+  );
+
   return (
     <>
       <section className="grid grid-cols-1 place-items-center gap-10 py-16 md:grid-cols-2">
@@ -73,9 +82,21 @@ export default function Home() {
           className="grid grid-cols-1 place-items-stretch gap-3"
           aria-label="works"
         >
-          <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
-            Blog
-          </h2>
+          <div className="flex place-content-between gap-2">
+            <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
+              BLOG / New Posts
+            </h2>
+            <a
+              href="/blog"
+              className="flex items-end gap-1 text-neutral-400 hover:text-neutral-200"
+            >
+              <p>Blog Page</p>
+              <HeroiconsSvgWrapper className="h-5 w-5">
+                {SVGElement.arrowUpRight}
+              </HeroiconsSvgWrapper>
+            </a>
+          </div>
+          <PostLinks items={newPosts} />
         </section>
       </div>
     </>
