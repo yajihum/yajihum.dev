@@ -1,5 +1,5 @@
 import { SVGElement } from '@/components/icons';
-import { NavSvgWrapper } from '@/components/icons/svg-wapper';
+import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { LinkType } from './data';
@@ -8,9 +8,9 @@ export default function SideBar({ links }: { links: LinkType[] }) {
   return (
     <Sheet>
       <SheetTrigger className="py-3">
-        <NavSvgWrapper className="h-6 w-6">
+        <HeroiconsSvgWrapper className="h-6 w-6">
           {SVGElement.humburger}
-        </NavSvgWrapper>
+        </HeroiconsSvgWrapper>
       </SheetTrigger>
       <SheetContent className="w-[150px]">
         <nav className="py-10">
@@ -21,7 +21,7 @@ export default function SideBar({ links }: { links: LinkType[] }) {
                   className="flex gap-3 rounded-lg text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
                   href={link.href}
                 >
-                  <NavSvgWrapper>{link.icon}</NavSvgWrapper>
+                  <HeroiconsSvgWrapper>{link.icon}</HeroiconsSvgWrapper>
                   <p className="text-right text-sm font-semibold">
                     {link.name.toUpperCase()}
                   </p>
