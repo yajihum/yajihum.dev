@@ -10,7 +10,7 @@ export default function PostLinks({ items }: { items: Items[] }) {
           key={post.title}
           className="rounded-lg border border-neutral-700 hover:bg-neutral-800"
         >
-          <a href="/blog" className="flex gap-4 p-4">
+          <a href={`/blog/posts/${post.slug}`} className="flex gap-4 p-4">
             <p>
               <span className="grid aspect-square w-full place-content-center rounded-lg bg-white p-3 text-center text-5xl">
                 {post.icon}
@@ -24,7 +24,7 @@ export default function PostLinks({ items }: { items: Items[] }) {
                   </HeroiconsSvgWrapper>
                   <p>{post.pubDate}</p>
                 </div>
-                <p className="font-semibold">{post.title}</p>
+                <p className="text-sm font-semibold">{post.title}</p>
               </div>
               <p className="line-clamp-2 text-xs text-neutral-300">
                 {post.description}

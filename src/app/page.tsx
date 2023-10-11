@@ -2,13 +2,13 @@ import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import PostLinks from '@/components/molecules/PostLinks';
 import SnsLinks from '@/components/molecules/SnsLinks';
+import SpeachLinks from '@/components/molecules/SpeachLinks';
 import WorksCards from '@/components/molecules/WorksCards';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -40,7 +40,10 @@ export default function Home() {
           className="grid grid-cols-1 place-items-stretch gap-3"
           aria-label="About me"
         >
-          <h2 id="about" className="scroll-mt-20 px-2 text-2xl font-semibold">
+          <h2
+            id="about"
+            className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
+          >
             ABOUT
           </h2>
           <Card className="border border-neutral-700 bg-neutral-900 text-white backdrop-blur transition-colors">
@@ -62,18 +65,20 @@ export default function Home() {
                 {`I'm a frontend engineer working at an EdTech company.😴`}
               </CardDescription>
             </CardHeader>
-            <Separator className="my-2 bg-neutral-700" />
-            <CardContent className="px-8 py-4 md:p-6">
+            <Separator className="bg-neutral-700" />
+            <CardContent className="p-6 md:p-5">
               <SnsLinks />
             </CardContent>
-            <CardFooter className="flex justify-between"></CardFooter>
           </Card>
         </section>
         <section
           className="grid grid-cols-1 place-items-stretch gap-3"
           aria-label="works"
         >
-          <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
+          <h2
+            id="works"
+            className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
+          >
             WORKS
           </h2>
           <WorksCards />
@@ -83,14 +88,40 @@ export default function Home() {
           aria-label="works"
         >
           <div className="flex place-content-between gap-2">
-            <h2 id="works" className="scroll-mt-20 px-2 text-2xl font-semibold">
+            <h2
+              id="works"
+              className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
+            >
+              SPEACH / New Slides
+            </h2>
+            <a
+              href="/speach"
+              className="flex items-end gap-1 text-neutral-400 hover:text-neutral-200"
+            >
+              <p className="text-sm md:text-base">Speach Page</p>
+              <HeroiconsSvgWrapper className="h-5 w-5">
+                {SVGElement.arrowUpRight}
+              </HeroiconsSvgWrapper>
+            </a>
+          </div>
+          <SpeachLinks />
+        </section>
+        <section
+          className="grid grid-cols-1 place-items-stretch gap-3"
+          aria-label="works"
+        >
+          <div className="flex place-content-between gap-2">
+            <h2
+              id="works"
+              className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
+            >
               BLOG / New Posts
             </h2>
             <a
               href="/blog"
               className="flex items-end gap-1 text-neutral-400 hover:text-neutral-200"
             >
-              <p>Blog Page</p>
+              <p className="text-sm md:text-base">Blog Page</p>
               <HeroiconsSvgWrapper className="h-5 w-5">
                 {SVGElement.arrowUpRight}
               </HeroiconsSvgWrapper>

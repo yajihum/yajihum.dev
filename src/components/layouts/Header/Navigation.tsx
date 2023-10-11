@@ -13,15 +13,12 @@ export default function Navigation() {
         <SideBar links={links} />
       </div>
       <nav className="hidden items-center md:flex">
-        <ul className="grid grid-cols-4 gap-3">
+        <ul className="grid grid-cols-5 justify-items-center gap-4">
           {links.map((link) => {
             return (
               <li key={link.name}>
                 <Link
-                  className={cn(
-                    'grid justify-items-center gap-1 rounded-lg px-2 py-1 font-bold',
-                    link.color,
-                  )}
+                  className={cn('font-bold', link.color)}
                   href={link.href}
                   aria-disabled={link.disable}
                 >

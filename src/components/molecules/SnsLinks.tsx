@@ -23,18 +23,25 @@ const snsLinks = [
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/yajium/',
+    url: 'https://www.instagram.com/yajium',
     icon: SVGElement.instagram,
     userName: '@yajium',
     fill: '#E4405F',
+  },
+  {
+    name: 'Speaker Deck',
+    url: 'https://speakerdeck.com/yajihum',
+    icon: SVGElement.speakerDeck,
+    userName: '@yajihum',
+    fill: '#009287',
   },
 ];
 
 export default function SnsLinks() {
   return (
-    <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
+    <ul className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-0">
       {snsLinks.map((link) => (
-        <li key={link.name} className="flex gap-2 md:gap-3">
+        <li key={link.name} className="flex gap-2">
           <SnsSvgWrapper fill={link.fill} className="rounded-md bg-white p-1.5">
             {link.icon}
           </SnsSvgWrapper>
