@@ -22,7 +22,7 @@ export default function PostLinks({ items }: { items: Items[] }) {
                   <HeroiconsSvgWrapper className="h-4 w-4">
                     {SVGElement.calendar}
                   </HeroiconsSvgWrapper>
-                  <p>{post.pubDate}</p>
+                  <time>{post.pubDate}</time>
                 </div>
                 <p className="text-sm font-semibold">{post.title}</p>
               </div>

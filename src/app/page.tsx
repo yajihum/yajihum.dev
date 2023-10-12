@@ -44,7 +44,7 @@ export default function Home() {
             id="about"
             className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
           >
-            ABOUT
+            About
           </h2>
           <Card className="border border-neutral-700 bg-neutral-900 text-white backdrop-blur transition-colors">
             <CardHeader className="grid grid-cols-1 gap-3">
@@ -79,7 +79,7 @@ export default function Home() {
             id="works"
             className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
           >
-            WORKS
+            Works
           </h2>
           <WorksCards />
         </section>
@@ -92,7 +92,7 @@ export default function Home() {
               id="works"
               className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
             >
-              SPEACH / New Slides
+              Speach / New Slides
             </h2>
             <a
               href="/speach"
@@ -115,7 +115,7 @@ export default function Home() {
               id="works"
               className="scroll-mt-20 px-2 text-lg font-semibold md:text-2xl"
             >
-              BLOG / New Posts
+              Blog / New Posts
             </h2>
             <a
               href="/blog"

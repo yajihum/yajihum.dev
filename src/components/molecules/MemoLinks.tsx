@@ -10,13 +10,13 @@ export default function MemoLinks({ memos }: { memos: Memo[] }) {
           key={memo.title}
           className="rounded-lg border border-neutral-700 hover:bg-neutral-800"
         >
-          <a href="/blog" className="flex gap-4 p-4">
+          <a href={`/blog/memos/${memo.id}`} className="flex gap-4 p-4">
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-1 text-xs text-neutral-400">
                 <HeroiconsSvgWrapper className="h-4 w-4">
                   {SVGElement.calendar}
                 </HeroiconsSvgWrapper>
-                <p>{memo.createdAt}</p>
+                <time>{memo.createdAt}</time>
               </div>
               <p className="font-semibold">{memo.title}</p>
             </div>

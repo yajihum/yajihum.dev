@@ -12,7 +12,7 @@ export default function SideBar({ links }: { links: LinkType[] }) {
           {SVGElement.humburger}
         </HeroiconsSvgWrapper>
       </SheetTrigger>
-      <SheetContent className="w-[150px] border-l border-neutral-400 bg-neutral-800">
+      <SheetContent className="w-[150px] border-l border-neutral-700 bg-neutral-800">
         <nav className="py-10">
           <ul className="grid gap-10">
             {links.map((link) => (
