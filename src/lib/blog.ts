@@ -64,13 +64,3 @@ export function getPosts(fields: string[] = [], limit?: number) {
     .slice(0, limit);
   return posts;
 }
-
-// export function getNewPosts(fields: string[] = []) {
-//   const posts = getAllPosts(fields);
-//   const limitNum: number = 5;
-
-//   if (posts.length < limitNum) {
-//     return posts;
-//   }
-//   return posts.slice(0, limitNum);
-// }

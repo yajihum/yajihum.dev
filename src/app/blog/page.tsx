@@ -5,8 +5,8 @@ import { Suspense } from 'react';
 import { SVGElement } from '../../components/icons';
 import MemoList from './_components/MemoList';
 
-export default function Blog() {
-  const posts = getPosts([
+export default async function Blog() {
+  const posts = await getPosts([
     'title',
     'description',
     'pubDate',
@@ -17,7 +17,7 @@ export default function Blog() {
 
   return (
     <section className="grid grid-cols-1 gap-10">
-      <h1 className="text-3xl font-bold">BLOG</h1>
+      <h1 className="text-3xl font-bold">Blog</h1>
       <section className="grid grid-cols-1 gap-3">
         <div className="flex items-center">
           <HeroiconsSvgWrapper className="text-neutral-400">

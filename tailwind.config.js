@@ -70,7 +70,27 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#fff',
+            a: {
+              color: '#3b82f6',
+              '&:hover': {
+                color: '#60a5fa',
+              },
+            },
+            pre: {
+              backgroundColor: '#22272e',
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+  ],
 };

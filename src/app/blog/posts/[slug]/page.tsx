@@ -1,10 +1,9 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import { getPostBySlug, getPosts } from '@/lib/blog';
-import 'zenn-content-css';
-import markdownToHtml from 'zenn-markdown-html';
+import PostContent from './_components/PostContent';
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const posts = getPosts(['slug']);
 
   return posts.map((post) => ({
@@ -15,9 +14,6 @@ export async function generateStaticParams() {
 export default function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
-  const content = markdownToHtml(post.content, {
-    embedOrigin: 'https://embed.zenn.studio',
-  });
 
   return (
     <div className="grid grid-cols-1 gap-12 py-4 md:py-10">
@@ -35,8 +31,8 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </div>
-      <section className="znc rounded-xl p-3 md:border md:border-neutral-700 md:bg-neutral-900 md:p-8">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <section className="rounded-xl p-3 md:border md:border-neutral-700 md:bg-neutral-900 md:p-8">
+        <PostContent content={post.content} />
       </section>
     </div>
   );
