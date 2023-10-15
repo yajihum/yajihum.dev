@@ -16,7 +16,7 @@ export default function SpeachLinks({ sliceCount = 1, className }: Props) {
           className="grid grid-cols-1 gap-4 rounded-lg border border-neutral-700 bg-neutral-900 p-3 md:justify-items-end md:p-4"
         >
           {speach.embedding}
-          <section className="grid grid-cols-1 gap-2 text-neutral-300">
+          <section className="grid grid-cols-1 gap-2 text-neutral-200">
             <a
               href={speach.speakerDeckUrl}
               target="_blank"
@@ -29,7 +29,7 @@ export default function SpeachLinks({ sliceCount = 1, className }: Props) {
                 {SVGElement.arrowUpRight}
               </HeroiconsSvgWrapper>
             </a>
-            <div className="flex items-center gap-1 text-neutral-400 md:justify-end">
+            <div className="flex items-center gap-1 text-neutral-300 md:justify-end">
               <HeroiconsSvgWrapper className="h-4 w-4">
                 {SVGElement.atSymbol}
               </HeroiconsSvgWrapper>

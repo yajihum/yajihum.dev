@@ -71,23 +71,21 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 例えば、こんな感じでコンポーネントのすぐ下に`<style>`タグを追加することで css を原始的に？書けるので直感的で分かりやすい
 中身は Tailwind を使っているのだけども
 
-```html:works.astro
-<BlankLayout title={worksTitle}>
+```html :works.astro
+<BlankLayout title="{worksTitle}">
   <div class="content">
     <div class="head">
       <h2>Works</h2>
     </div>
-    <div class="cards">
-      ...
-    </div>
+    <div class="cards">...</div>
   </div>
 </BlankLayout>
 <style>
   .head h2 {
-    @apply text-4xl text-center my-10 text-beige;
+    @apply text-beige my-10 text-center text-4xl;
   }
   .cards {
-    @apply mx-9 grid grid-cols-1 lg:grid-cols-3 lg:gap-6 place-items-center animate-slideIn;
+    @apply animate-slideIn mx-9 grid grid-cols-1 place-items-center lg:grid-cols-3 lg:gap-6;
   }
 </style>
 ```

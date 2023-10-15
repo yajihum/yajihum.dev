@@ -83,6 +83,9 @@ module.exports = {
             pre: {
               backgroundColor: '#22272e',
             },
+            h2: {
+              'scroll-margin-top': '100px',
+            },
           },
         },
       },
@@ -92,5 +95,35 @@ module.exports = {
     require('tailwindcss-animate'),
     require('@tailwindcss/line-clamp'),
     require('@tailwindcss/typography'),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          scrollbarWidth: 'none', // Firefox
+        },
+        '.scrollbar-hide::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '.scrollbar-dark': {
+          '--scrollbar-bg': '#22272e',
+          '--scrollbar-thumb': '#515e70',
+          '--scrollbar-thumb-hover': '#515e70',
+        },
+        '.scrollbar-dark::-webkit-scrollbar': {
+          width: '12px',
+        },
+        '.scrollbar-dark::-webkit-scrollbar-track': {
+          background: 'var(--scrollbar-bg)',
+        },
+        '.scrollbar-dark::-webkit-scrollbar-thumb': {
+          backgroundColor: 'var(--scrollbar-thumb)',
+          borderRadius: '6px',
+          border: '3px solid var(--scrollbar-bg)',
+          '&:hover': {
+            backgroundColor: 'var(--scrollbar-thumb-hover)',
+          },
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
   ],
 };

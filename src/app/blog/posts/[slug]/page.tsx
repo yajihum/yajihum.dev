@@ -16,7 +16,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
 
   return (
-    <div className="grid grid-cols-1 gap-12 py-4 md:py-10">
+    <div className="grid grid-cols-1 gap-12 py-4 md:py-8">
       <div className="flex flex-col gap-6 md:gap-10">
         <section className="text-center">
           <p className="text-5xl md:text-7xl">{post.icon}</p>
