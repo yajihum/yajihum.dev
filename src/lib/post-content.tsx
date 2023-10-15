@@ -49,9 +49,7 @@ const CodeBlock = ({ className, children, node }: CodeProps) => {
           <span>{filename}</span>
         </div>
       )}
-      <div className="mb-2">
-        <code className={cn('scrollbar-dark', className)}>{children}</code>
-      </div>
+      <code className={cn('scrollbar-dark', className)}>{children}</code>
     </>
   );
 };
@@ -64,10 +62,11 @@ const Pre = (props: PreProps) => {
   if (isValidElement(props.children) && props.children.type === 'code') {
     const childClassName = props.children.props.className;
     const childChildren = props.children.props.children;
+    console.log(props.children.props);
 
     return (
       <pre
-        className={cn('grid grid-cols-1 gap-3 px-2 md:px-4', props.className)}
+        className={cn('grid grid-cols-1 gap-1 px-2 md:px-4', props.className)}
       >
         <CodeBlock className={childClassName} node={props.children.props.node}>
           {childChildren}
@@ -85,5 +84,6 @@ const Pre = (props: PreProps) => {
 
 export const ReactMarkdownComponents = {
   h2: H2,
+  code: CodeBlock,
   pre: Pre,
 };
