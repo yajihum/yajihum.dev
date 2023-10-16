@@ -24,10 +24,10 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 - Figma
 
 **スマホ**
-![Figma デザイン](/images/2023/02/create_new_blog/figma_smartphone.png =700x)
+![Figma デザイン(スマホ)](https://images.yajium.day/images/2023/02/create_new_blog/figma_smartphone.png)
 
 **デスクトップ**
-![Figma デザイン](/images/2023/02/create_new_blog/figma_desctop.png =700x)
+![Figma デザイン(デスクトップ)](https://images.yajium.day/images/2023/02/create_new_blog/figma_desctop.png)
 
 - TailwindCSS
 - daisyUI
@@ -35,7 +35,7 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 
 ### Markdown
 
-- [zenn-markdown](https://zenn.dev/rorisutarou/articles/ec3871ec55693d)
+- [zenn-markdown](https://zenn.dev/rorisutarou/articles/ec3871ec55693d)  
   Zenn の UI が好きで、Next.js で Markdown パーサーとして使った時の使用感も気に入っていたので今回も導入したが、Astro では少し苦戦した。導入方法は上記の URL に書いてある
 
 ### CMS
@@ -47,12 +47,12 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 
 ### OGP 画像生成
 
-- [Cloudinary](https://catnose.me/notes/cloudinary-dynamic-ogp-image)
+- [Cloudinary](https://catnose.me/notes/cloudinary-dynamic-ogp-image)  
   Next.js では`vercle/og`を使っていたのですが、Astro では SSR を導入するところから必要になるのでもっと手軽にできそうなものということで`Cloudinary`にした
   結構簡単で、ベースの画像を用意してそれ用の URL が出来るのでその URL に title などのテキストを付与すれば動的に OGP 画像を生成出来ちゃう優れもの
   ただ、フォントを本当は NotoSnasJP を使いたかったのだが無理そうなので Sawarabi にしている
 
-![ogp画像](/images/2023/02/create_new_blog/ogp_image.png =500x)
+![yajium.dayのサイトのogp画像](https://images.yajium.day/images/2023/02/create_new_blog/ogp_image.png)
 
 ### サーバー設定
 
