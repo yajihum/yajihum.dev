@@ -4,6 +4,7 @@ import { getPosts } from '@/lib/blog';
 import { Suspense } from 'react';
 import { SVGElement } from '../../components/icons';
 import MemoList from './_components/MemoList';
+import MemoSkelton from './_components/MemoSkelton';
 
 export default async function Blog() {
   const posts = await getPosts([
@@ -32,7 +33,7 @@ export default async function Blog() {
           <HeroiconsSvgWrapper>{SVGElement.hashtag}</HeroiconsSvgWrapper>
           <h2 className="px-2 text-2xl font-bold">Memos</h2>
         </div>
-        <Suspense fallback={<p>loading</p>}>
+        <Suspense fallback={<MemoSkelton />}>
           <MemoList />
         </Suspense>
       </section>

@@ -1,5 +1,5 @@
+import Loading from '@/components/atoms/Loading';
 import { Suspense } from 'react';
-import 'zenn-content-css';
 import MemoDetail from '../../_components/MemoDetail';
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -7,7 +7,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   console.log(id);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <MemoDetail id={id} />
     </Suspense>
   );

@@ -82,6 +82,19 @@ const Pre = (props: PreProps) => {
   );
 };
 
+// type ImageProps = ClassAttributes<HTMLImageElement> &
+//   HTMLAttributes<HTMLImageElement> & { src: string; alt: string };
+
+// const Image = ({ src, alt }: ImageProps) => {
+//   const size = alt.split('=') ? alt.split('=')[1] : '100%';
+
+//   return (
+//     <div className="flex justify-center">
+//       <img src={src} alt={alt} width={size} />
+//     </div>
+//   );
+// };
+
 export const ReactMarkdownComponents = {
   h2: H2,
   code: CodeBlock,

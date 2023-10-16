@@ -4,7 +4,6 @@ import { getMemoDetail } from '@/lib/microcms';
 import { getDate } from '@/lib/utils';
 
 export default async function MemoDetail({ id }: { id: string }) {
-  console.log(id);
   const memo = await getMemoDetail(id, {
     fields: ['createdAt', 'title', 'content'],
     richEditorFormat: 'html',
@@ -25,7 +24,7 @@ export default async function MemoDetail({ id }: { id: string }) {
           </div>
         </section>
       </div>
-      <section className="rounded-xl p-3 md:border md:border-neutral-700 md:bg-neutral-900 md:p-8">
+      <section className="rounded-xl p-3 md:p-8">
         <div dangerouslySetInnerHTML={{ __html: memo.content }} />
       </section>
     </div>
