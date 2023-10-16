@@ -3,6 +3,8 @@ import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import { getPostBySlug, getPosts } from '@/lib/blog';
 import PostContent from './_components/PostContent';
 
+export const runtime = 'edge';
+
 export function generateStaticParams() {
   const posts = getPosts(['slug']);
 
