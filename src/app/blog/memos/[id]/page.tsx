@@ -4,6 +4,8 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import MemoDetail from '../../_components/MemoDetail';
 
+export const runtime = 'edge';
+
 type Props = {
   params: {
     id: string;
