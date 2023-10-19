@@ -4,6 +4,8 @@ import { getPostBySlug, getPosts } from '@/lib/blog';
 import { Metadata } from 'next';
 import PostContent from './_components/PostContent';
 
+export const dynamicParams = false;
+
 type Props = {
   params: {
     slug: string;
