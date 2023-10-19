@@ -1,6 +1,12 @@
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
+import { Metadata } from 'next';
 import { SVGElement } from '../../components/icons';
+
+export const metadata: Metadata = {
+  title: 'Speach',
+  description: '今までLT会などで発表してきたものをまとめたページ',
+};
 
 export default function Speach() {
   return (

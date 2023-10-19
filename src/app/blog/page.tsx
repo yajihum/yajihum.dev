@@ -1,13 +1,19 @@
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import PostLinks from '@/components/molecules/PostLinks';
 import { getPosts } from '@/lib/blog';
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SVGElement } from '../../components/icons';
 import MemoList from './_components/MemoList';
 import MemoSkelton from './_components/MemoSkelton';
 
-export default async function Blog() {
-  const posts = await getPosts([
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'ブログの投稿や、簡単なメモの一覧ページ',
+};
+
+export default function Blog() {
+  const posts = getPosts([
     'title',
     'description',
     'pubDate',

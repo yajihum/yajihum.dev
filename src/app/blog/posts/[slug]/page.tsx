@@ -1,7 +1,31 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import { getPostBySlug, getPosts } from '@/lib/blog';
+import { Metadata } from 'next';
 import PostContent from './_components/PostContent';
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = params.slug;
+  const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
+
+  return {
+    title: post.title,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+    },
+    twitter: {
+      title: post.title,
+      description: post.description,
+    },
+  };
+}
 
 export function generateStaticParams() {
   const posts = getPosts(['slug']);
