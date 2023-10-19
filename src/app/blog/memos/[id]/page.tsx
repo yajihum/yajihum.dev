@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Memos({ params }: Props) {
+export default function Memos({ params }: Props) {
   const { id } = params;
 
   return (
