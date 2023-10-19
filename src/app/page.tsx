@@ -26,7 +26,9 @@ export default function Home() {
     <>
       <section className="grid grid-cols-1 place-items-center gap-10 py-16 md:grid-cols-2">
         <section className="my-auto">
-          <h2 className="text-5xl font-semibold lg:text-7xl">こんちゃ！</h2>
+          <h2 className="tracking-in-expand text-shadow text-5xl font-semibold shadow-neutral-300 lg:text-7xl">
+            Welcome!
+          </h2>
         </section>
         <Image
           src="https://images.yajium.day/rorisu.png"

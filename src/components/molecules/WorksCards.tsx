@@ -37,8 +37,10 @@ export default function WorksCards() {
               <Image
                 src={work.image}
                 alt={work.name}
-                layout="fill"
-                objectFit="cover"
+                fill
+                sizes="100%"
+                priority
+                style={{ objectFit: 'cover' }}
                 className="absolute rounded-t-xl object-fill"
               />
             </div>
