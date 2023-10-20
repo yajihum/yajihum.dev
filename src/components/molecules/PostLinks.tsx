@@ -1,4 +1,5 @@
 import { Items } from '@/lib/blog';
+import { emojiDomain } from '@/lib/cloudflare';
 import { SVGElement } from '../icons';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
@@ -10,13 +11,18 @@ export default function PostLinks({ items }: { items: Items[] }) {
           key={post.title}
           className="rounded-lg border border-neutral-700 hover:bg-neutral-800"
         >
-          <a href={`/blog/posts/${post.slug}`} className="flex gap-4 p-4">
-            <p>
-              <span className="grid aspect-square w-full place-content-center rounded-lg bg-white p-3 text-center text-5xl">
-                {post.icon}
-              </span>
-            </p>
-            <div className="flex flex-col gap-2">
+          <a
+            href={`/blog/posts/${post.slug}`}
+            className="flex items-center gap-4 p-4 md:p-5"
+          >
+            <div className="flex max-h-20 w-1/4 items-center rounded-xl bg-white p-2">
+              <img
+                src={`${emojiDomain}${post.icon}.png`}
+                alt="絵文字アイコン"
+                className="h-14 w-14 p-1 md:h-16 md:w-16"
+              />
+            </div>
+            <div className="flex w-3/4 flex-col gap-2">
               <div className="flex flex-col gap-1.5">
                 <div className="flex items-center gap-1 text-xs text-neutral-400">
                   <HeroiconsSvgWrapper className="h-4 w-4">

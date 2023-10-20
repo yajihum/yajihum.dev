@@ -3,7 +3,7 @@ title: 'Astroで新しいブログサイトを作った'
 description: 'Next.jsのブログをAstroで作り直した'
 pubDate: '2023/02/25 16:00'
 tags: ['Tech']
-icon: 🖌️
+icon: 'objects/159'
 ---
 
 1 か月前くらいからブログ作り直したいなという気持ちが出てきたので、流行りの Astro で作り直すことにした。

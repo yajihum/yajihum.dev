@@ -1,6 +1,7 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import { getPostBySlug, getPosts } from '@/lib/blog';
+import { emojiDomain } from '@/lib/cloudflare';
 import { Metadata } from 'next';
 import PostContent from './_components/PostContent';
 
@@ -44,9 +45,13 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="grid grid-cols-1 gap-12 py-4 md:py-8">
       <div className="flex flex-col gap-6 md:gap-10">
-        <section className="text-center">
-          <p className="text-5xl md:text-7xl">{post.icon}</p>
-        </section>
+        <div className="flex justify-center">
+          <img
+            src={`${emojiDomain}${post.icon}.png`}
+            alt="絵文字アイコン"
+            className="h-16 w-16 p-1 md:h-24 md:w-24"
+          />
+        </div>
         <section className="grid grid-cols-1 justify-items-center gap-2 md:gap-4">
           <h1 className="text-xl font-semibold md:text-3xl">{post.title}</h1>
           <div className="flex items-center gap-1 text-xs text-neutral-300 md:text-sm">
