@@ -11,7 +11,7 @@ export default function PostContent({ content }: { content: string }) {
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeHighlight]}
       components={ReactMarkdownComponents}
-      className="prose prose-neutral m-auto mt-5 max-w-4xl prose-headings:text-white prose-a:whitespace-normal prose-a:break-all prose-a:text-blue-500 prose-blockquote:text-neutral-300 prose-code:text-red-400"
+      className="prose prose-neutral m-auto mt-5 max-w-4xl prose-headings:text-white prose-a:whitespace-normal prose-a:break-all prose-a:text-blue-500 prose-blockquote:text-neutral-300 prose-strong:text-white prose-code:text-red-400"
     >
       {content}
     </Markdown>
