@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import SideBar from './SideBar';
+import SideBarContainer from './SideBarContainer';
 import { useLinks } from './data';
 
 export default function Navigation() {
@@ -10,7 +10,7 @@ export default function Navigation() {
   return (
     <>
       <div className="block md:hidden">
-        <SideBar links={links} />
+        <SideBarContainer />
       </div>
       <nav className="hidden items-center md:flex">
         <ul className="grid grid-cols-5 justify-items-center gap-4">
