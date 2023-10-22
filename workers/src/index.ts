@@ -1,32 +1,27 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
-
 export interface Env {
-	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-	// MY_KV_NAMESPACE: KVNamespace;
-	//
-	// Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
-	// MY_DURABLE_OBJECT: DurableObjectNamespace;
-	//
-	// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
-	// MY_BUCKET: R2Bucket;
-	//
-	// Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
-	// MY_SERVICE: Fetcher;
-	//
-	// Example binding to a Queue. Learn more at https://developers.cloudflare.com/queues/javascript-apis/
-	// MY_QUEUE: Queue;
+	MY_KV: KVNamespace;
 }
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+		const { pathname } = new URL(request.url);
+
+		switch (request.method) {
+			case 'GET':
+				const key = pathname.slice(1);
+				const value = await env.MY_KV.get(key);
+				if (value === null) {
+					return new Response('Value not found', { status: 404 });
+				}
+				return new Response(value);
+			case 'PUT':
+				const newValue = await request.text();
+				await env.MY_KV.put(pathname.slice(1), newValue);
+				return new Response('Success', { status: 200 });
+			default:
+				return new Response(`${request.method} is not allowed.`, {
+					status: 405,
+				});
+		}
 	},
 };
