@@ -3,5 +3,5 @@ main = "src/index.ts"
 compatibility_date = "2023-10-16"
 
 kv_namespaces = [
-    { binding = "blog_emoji_stamps", id = "fecd9c9b46e544d589fa3c22a7eedea2" }
+    { binding = "MY_KV_STAMP", id = "4fa707571f1548a480b788438334363c", preview_id = "22f62ec16d844a07a545a399b72f2ebc" }
 ]
