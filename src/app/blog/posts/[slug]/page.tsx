@@ -1,5 +1,6 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
+import StampContainer from '@/components/molecules/StampContainer';
 import { getPostBySlug, getPosts } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
 import { Metadata } from 'next';
@@ -7,13 +8,15 @@ import PostContent from './_components/PostContent';
 
 export const dynamicParams = false;
 
-type Props = {
+export type PostSlugParams = {
   params: {
     slug: string;
   };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PostSlugParams): Promise<Metadata> {
   const slug = params.slug;
   const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
 
@@ -65,6 +68,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <section className="rounded-xl p-3 md:p-8">
         <PostContent content={post.content} />
       </section>
+      <StampContainer />
       <section className="px-4 md:px-8">
         <a
           href="/blog"

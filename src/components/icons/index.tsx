@@ -82,6 +82,10 @@ export const SVGElement: { [key: string]: React.ReactNode } = {
       d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
     />
   ),
+  plus: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+  ),
+  minus: <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />,
   x: (
     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
   ),
