@@ -1,5 +1,7 @@
 import { emojiListEntryPoint } from '@/lib/cloudflare';
 
+export const runtime = 'edge';
+
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } },
