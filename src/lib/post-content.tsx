@@ -1,5 +1,4 @@
-import { SVGElement } from '@/components/icons';
-import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
+import H2WithId from '@/components/atoms/H2WithId';
 import { ClassAttributes, HTMLAttributes, isValidElement } from 'react';
 import type { ExtraProps } from 'react-markdown';
 import { cn } from './utils';
@@ -16,17 +15,9 @@ const H2 = ({
       : '';
 
   return (
-    <h2
-      id={title}
-      className="flex items-center gap-2 border-b border-neutral-700 py-3"
-    >
-      <a id={title} href={`#${title}`}>
-        <HeroiconsSvgWrapper className="h-5 w-5 text-neutral-400 hover:text-neutral-200">
-          {SVGElement.link}
-        </HeroiconsSvgWrapper>
-      </a>
+    <H2WithId id={title} hasBorder={true}>
       {children}
-    </h2>
+    </H2WithId>
   );
 };
 
