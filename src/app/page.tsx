@@ -67,13 +67,19 @@ export default function Home() {
                       alt="@yajihum"
                       className="inline-block"
                     />
-                    <AvatarFallback>hum</AvatarFallback>
+                    <AvatarFallback>yajihum</AvatarFallback>
                   </Avatar>
                   やじはむ
                 </p>
               </CardTitle>
               <CardDescription className="text-neutral-200">
-                {`I'm a frontend engineer working at an EdTech company.😴`}
+                {`I'm a frontend engineer working at `}
+                <a
+                  href="https://qubena.com/"
+                  className="text-blue-500 hover:underline"
+                >
+                  COMPASS,Inc.😴
+                </a>
               </CardDescription>
             </CardHeader>
             <Separator className="bg-neutral-700" />
@@ -146,9 +152,7 @@ const SectionTitle = ({
 const LinkToPage = ({ href, title }: { href: string; title: string }) => {
   return (
     <a href={href} className="flex items-end gap-1 px-1">
-      <p className="text-sm text-neutral-300 hover:text-neutral-200 md:text-base">
-        {title}
-      </p>
+      <p className="text-sm hover:underline md:text-base">{title}</p>
       <HeroiconsSvgWrapper className="h-5 w-5 text-emerald-400 md:h-6 md:w-6">
         {SVGElement.chevronRight}
       </HeroiconsSvgWrapper>

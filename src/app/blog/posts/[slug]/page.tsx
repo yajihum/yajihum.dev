@@ -65,7 +65,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </div>
-      <section className="rounded-xl p-3 md:p-8">
+      <section className="rounded-xl p-1 md:p-8">
         <PostContent content={post.content} />
       </section>
       <StampContainer />
