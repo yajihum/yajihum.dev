@@ -69,7 +69,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         <PostContent content={post.content} />
       </section>
       <StampContainer />
-      <section className="px-4 md:px-8">
+      <section>
         <a
           href="/blog"
           className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-neutral-200 px-4 py-2 font-semibold text-neutral-800 hover:bg-white hover:text-black"

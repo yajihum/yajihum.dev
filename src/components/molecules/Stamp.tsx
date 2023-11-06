@@ -20,7 +20,7 @@ export default function Stamp({
   handleSelectEmoji,
 }: Props) {
   return (
-    <section className="flex flex-col gap-4 px-4 md:flex-row md:justify-between md:gap-0 md:px-8">
+    <section className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-0">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger className="h-9 w-9 shrink-0">
           <p className="shrink-0 rounded-lg bg-neutral-800 p-2">

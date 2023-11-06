@@ -73,13 +73,18 @@ export default function Home() {
                 </p>
               </CardTitle>
               <CardDescription className="text-neutral-200">
-                {`I'm a frontend engineer working at `}
-                <a
-                  href="https://qubena.com/"
-                  className="text-blue-500 hover:underline"
-                >
-                  COMPASS,Inc.😴
-                </a>
+                <span className="block">
+                  {`I'm a frontend engineer working at `}
+                  <a
+                    href="https://qubena.com/"
+                    className="text-blue-500 hover:underline"
+                  >
+                    COMPASS,inc.
+                  </a>
+                </span>
+                <span className="block">
+                  ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...😴
+                </span>
               </CardDescription>
             </CardHeader>
             <Separator className="bg-neutral-700" />
@@ -107,7 +112,7 @@ export default function Home() {
             <SectionTitle
               id="speach-new-slides"
               title="Speach / New Slides"
-              description="Here are the new slides from my presentation."
+              description="Here is the new slide from my presentation."
             />
             <LinkToPage href="/speach" title="Speach Page" />
           </div>
