@@ -79,8 +79,9 @@ export default function Home() {
                     href="https://qubena.com/"
                     className="text-blue-500 hover:underline"
                   >
-                    COMPASS,inc.
+                    COMPASS
                   </a>
+                  .
                 </span>
                 <span className="block">
                   ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...😴
