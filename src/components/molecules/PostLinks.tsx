@@ -5,7 +5,7 @@ import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
 export default function PostLinks({ items }: { items: Items[] }) {
   return (
-    <section className="grid grid-cols-1 gap-3 md:grid-cols-2">
+    <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {items.map((post) => (
         <article
           key={post.title}
@@ -15,7 +15,7 @@ export default function PostLinks({ items }: { items: Items[] }) {
             href={`/blog/posts/${post.slug}`}
             className="flex items-center gap-4 p-4 md:p-5"
           >
-            <div className="flex max-h-20 w-1/4 items-center rounded-xl bg-white p-2">
+            <div className="flex max-h-20 items-center rounded-xl bg-white p-2 md:w-1/4">
               <img
                 src={`${emojiDomain}${post.icon}.png`}
                 alt="絵文字アイコン"
