@@ -41,15 +41,20 @@ export default function SnsLinks() {
   return (
     <ul className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-0">
       {snsLinks.map((link) => (
-        <li key={link.name} className="flex gap-2">
-          <SnsSvgWrapper fill={link.fill} className="rounded-md bg-white p-1.5">
-            {link.icon}
-          </SnsSvgWrapper>
-          <a href={link.url} target="_blank" className="grid grid-cols-1">
-            <p className="text-sm">{link.name}</p>
-            <p className="text-xs text-neutral-400 hover:underline md:text-sm">
-              {link.userName}
-            </p>
+        <li key={link.name}>
+          <a href={link.url} target="_blank" className="flex gap-2">
+            <SnsSvgWrapper
+              fill={link.fill}
+              className="rounded-md bg-white p-1.5"
+            >
+              {link.icon}
+            </SnsSvgWrapper>
+            <div className="grid grid-cols-1">
+              <p className="text-sm">{link.name}</p>
+              <p className="text-xs text-neutral-400 md:text-sm">
+                {link.userName}
+              </p>
+            </div>
           </a>
         </li>
       ))}
