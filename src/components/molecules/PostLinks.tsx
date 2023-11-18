@@ -1,9 +1,14 @@
-import { Items } from '@/lib/blog';
+import { Items, Tag } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
 import { SVGElement } from '../icons';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
-export default function PostLinks({ items }: { items: Items[] }) {
+type Props = {
+  items: Items[];
+  tag: Tag;
+};
+
+export default function PostLinks({ items, tag }: Props) {
   return (
     <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {items.map((post) => (
@@ -12,7 +17,7 @@ export default function PostLinks({ items }: { items: Items[] }) {
           className="rounded-xl border border-neutral-700 hover:bg-neutral-800"
         >
           <a
-            href={`/blog/posts/${post.slug}`}
+            href={`/blog/posts/${tag}/${post.slug}`}
             className="flex items-center gap-4 p-4 md:p-5"
           >
             <div className="flex max-h-20 items-center rounded-xl bg-white p-2 md:w-1/4">

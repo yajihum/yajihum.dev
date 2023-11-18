@@ -1,24 +1,29 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
-import StampContainer from '@/components/molecules/StampContainer';
-import { getPostBySlug, getPosts } from '@/lib/blog';
+import Stamp from '@/components/molecules/Stamp';
+import { Tag, getAllPosts, getPostBySlug } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
 import { Metadata } from 'next';
 import PostContent from './_components/PostContent';
 
 export const dynamicParams = false;
 
-export type PostSlugParams = {
+export type PostParams = {
   params: {
+    tag: Tag;
     slug: string;
   };
 };
 
 export async function generateMetadata({
   params,
-}: PostSlugParams): Promise<Metadata> {
-  const slug = params.slug;
-  const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
+}: PostParams): Promise<Metadata> {
+  const post = getPostBySlug(params.tag, params.slug, [
+    'title',
+    'pubDate',
+    'content',
+    'icon',
+  ]);
 
   return {
     title: post.title,
@@ -34,16 +39,22 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  const posts = getPosts(['slug']);
+  const posts = getAllPosts(['slug']);
 
   return posts.map((post) => ({
+    tag: post.tag,
     slug: post.slug,
   }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const post = getPostBySlug(slug, ['title', 'pubDate', 'content', 'icon']);
+export default function Page({ params }: PostParams) {
+  const { tag, slug } = params;
+  const post = getPostBySlug(tag, slug, [
+    'title',
+    'pubDate',
+    'content',
+    'icon',
+  ]);
 
   return (
     <div className="grid grid-cols-1 gap-12 py-4 md:py-8">
@@ -65,10 +76,10 @@ export default function Page({ params }: { params: { slug: string } }) {
           </div>
         </section>
       </div>
-      <section className="rounded-xl p-1 md:p-8">
+      <section className="rounded-xl p-1">
         <PostContent content={post.content} />
       </section>
-      <StampContainer />
+      <Stamp />
       <section>
         <a
           href="/blog"

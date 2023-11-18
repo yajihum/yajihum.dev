@@ -1,10 +1,7 @@
 import H2WithId from '@/components/atoms/H2WithId';
 import PostLinks from '@/components/molecules/PostLinks';
-import { getPosts } from '@/lib/blog';
+import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
-import MemoList from './_components/MemoList';
-import MemoSkelton from './_components/MemoSkelton';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -12,7 +9,27 @@ export const metadata: Metadata = {
 };
 
 export default function Blog() {
-  const posts = getPosts([
+  return (
+    <section className="grid grid-cols-1 gap-10">
+      <h1 className="text-3xl font-bold">Blog</h1>
+      <PostsListByTag tag="Tech" />
+      <PostsListByTag tag="Life" />
+    </section>
+  );
+}
+
+const PostsListByTag = ({ tag }: { tag: string }) => {
+  const lowerCaseTag = tag.toLowerCase() as Tag;
+  return (
+    <section className="grid grid-cols-1 gap-3">
+      <H2WithId id="all-posts" title={tag} />
+      <PostLinks items={getPosts(lowerCaseTag)} tag={lowerCaseTag} />
+    </section>
+  );
+};
+
+const getPosts = (tag: Tag) =>
+  getPostsByTag(tag, [
     'title',
     'description',
     'pubDate',
@@ -20,20 +37,3 @@ export default function Blog() {
     'icon',
     'slug',
   ]);
-
-  return (
-    <section className="grid grid-cols-1 gap-10">
-      <h1 className="text-3xl font-bold">Blog</h1>
-      <section className="grid grid-cols-1 gap-3">
-        <H2WithId id="all-posts" title="All Posts" />
-        <PostLinks items={posts} />
-      </section>
-      <section className="grid grid-cols-1 gap-3">
-        <H2WithId id="memos" title="Memos" />
-        <Suspense fallback={<MemoSkelton />}>
-          <MemoList />
-        </Suspense>
-      </section>
-    </section>
-  );
-}

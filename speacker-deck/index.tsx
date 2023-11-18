@@ -1,3 +1,11 @@
+export type SpeakerDeckEmbedding = {
+  title: string;
+  date: string;
+  event: string;
+  speakerDeckUrl: string;
+  embedding: JSX.Element;
+};
+
 export const speakerDeckEmbeddings = [
   {
     title: 'フロントエンドにおける テスト方針〜Testing Trophyの概念とBDD〜',

@@ -14,12 +14,14 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { getPosts } from '@/lib/blog';
+import { getPostsByTag } from '@/lib/blog';
+import { speakerDeckEmbeddings } from '../../speacker-deck';
 
 const greetingTitle = `This is Yajihum's portfolio website `;
 
 export default function Home() {
-  const newPosts = getPosts(
+  const newPosts = getPostsByTag(
+    'tech',
     ['title', 'description', 'pubDate', 'tags', 'icon', 'slug'],
     4,
   );
@@ -117,7 +119,7 @@ export default function Home() {
             />
             <LinkToPage href="/speach" title="Speach Page" />
           </div>
-          <SpeachLinks />
+          <SpeachLinks speackerDeckEmbeddings={speakerDeckEmbeddings} />
         </section>
         <section
           className="grid grid-cols-1 place-items-stretch gap-3"
@@ -131,7 +133,7 @@ export default function Home() {
             />
             <LinkToPage href="/blog" title="Blog Page" />
           </div>
-          <PostLinks items={newPosts} />
+          <PostLinks items={newPosts} tag="tech" />
         </section>
       </div>
     </>
@@ -159,7 +161,10 @@ const LinkToPage = ({ href, title }: { href: string; title: string }) => {
   return (
     <a href={href} className="flex items-end gap-1 px-1">
       <p className="text-sm hover:underline md:text-base">{title}</p>
-      <HeroiconsSvgWrapper className="h-5 w-5 text-emerald-400 md:h-6 md:w-6">
+      <HeroiconsSvgWrapper
+        className="h-5 w-5 text-emerald-400 md:h-6 md:w-6"
+        aria-label={`${title}へ遷移する`}
+      >
         {SVGElement.chevronRight}
       </HeroiconsSvgWrapper>
     </a>

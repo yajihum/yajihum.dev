@@ -1,44 +1,24 @@
 'use client';
 
+import { SVGElement } from '@/components/icons';
 import { EmojiType, Picker } from 'ms-3d-emoji-picker';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { SVGElement } from '../icons';
+import 'ms-3d-emoji-picker/styles/index.css';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
-export default function StampContainer() {
-  const pathname = usePathname();
-  const postName = pathname.split('/').slice(-1)[0];
+type Props = {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  selectedEmoji: EmojiType[] | undefined;
+  handleSelectEmoji: (selectedEmoji: EmojiType) => void;
+};
 
-  const [open, setOpen] = useState(false);
-  const [selectedEmoji, setSelectedEmoji] = useState<EmojiType[] | undefined>(
-    undefined,
-  );
-
-  useEffect(() => {
-    const fetchStampList = async () => {
-      const res = await fetch(`/api/stamps/${postName}`);
-      const stampList: EmojiType[] = await res.json();
-      setSelectedEmoji(stampList);
-    };
-    fetchStampList();
-
-    return () => {
-      setSelectedEmoji(undefined);
-    };
-  }, [postName]);
-
-  const handleSelectEmoji = async (selectedEmoji: EmojiType) => {
-    const res = await fetch(`/api/stamps/${postName}`, {
-      method: 'POST',
-      body: JSON.stringify(selectedEmoji),
-    });
-    const emojiList: EmojiType[] = await res.json();
-    setSelectedEmoji(emojiList);
-    setOpen(false);
-  };
-
+export default function Stamp({
+  open,
+  setOpen,
+  selectedEmoji,
+  handleSelectEmoji,
+}: Props) {
   return (
     <section className="flex flex-col gap-4 p-1 md:flex-row md:justify-between md:gap-0">
       <Popover open={open} onOpenChange={setOpen}>

@@ -7,9 +7,9 @@ export default function BasicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="flex min-h-screen flex-col bg-black text-white">
       <Header />
-      <main className="container mx-auto max-w-3xl px-4 md:px-0">
+      <main className="container mx-auto max-w-3xl flex-grow px-4 md:px-0">
         <Container>{children}</Container>
       </main>
       <Footer />

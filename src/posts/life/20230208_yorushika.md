@@ -2,7 +2,7 @@
 title: 'ライブで初めて泣いた'
 description: '2022/02/08に行ったヨルシカのライブについての記録'
 pubDate: '2023/02/24 13:31'
-tags: ['Life']
+tags: ['private']
 icon: 'smilieys/80'
 ---
 

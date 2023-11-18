@@ -1,16 +1,24 @@
 import { SVGElement } from '@/components/icons';
-import { speakerDeckEmbeddings } from '@/speaker-deck';
+import { SpeakerDeckEmbedding } from '../../../speacker-deck';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
 type Props = {
+  speackerDeckEmbeddings: SpeakerDeckEmbedding[];
   sliceCount?: number;
   className?: string;
 };
 
-export default function SpeachLinks({ sliceCount = 1, className }: Props) {
+export default function SpeachLinks({
+  speackerDeckEmbeddings,
+  sliceCount = 1,
+  className,
+}: Props) {
+  if (!speackerDeckEmbeddings || speackerDeckEmbeddings.length <= 0)
+    return null;
+
   return (
     <div className={className}>
-      {speakerDeckEmbeddings.slice(0, sliceCount).map((speach) => (
+      {speackerDeckEmbeddings.slice(0, sliceCount).map((speach) => (
         <div
           key={speach.title}
           className="grid grid-cols-1 gap-4 rounded-lg border border-neutral-700 bg-neutral-900 p-3 md:justify-items-end md:p-4"

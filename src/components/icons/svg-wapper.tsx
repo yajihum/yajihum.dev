@@ -1,12 +1,16 @@
 import { cn } from '@/lib/utils';
 
+type HeroiconsSvgWrapperProps = {
+  children: React.ReactNode;
+  className?: string;
+  'aria-label'?: string;
+};
+
 export function HeroiconsSvgWrapper({
   children,
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+  'aria-label': ariaLabel,
+}: HeroiconsSvgWrapperProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +19,7 @@ export function HeroiconsSvgWrapper({
       strokeWidth="1.7"
       stroke="currentColor"
       className={cn('h-5 w-5', className)}
+      aria-label={ariaLabel}
     >
       {children}
     </svg>
