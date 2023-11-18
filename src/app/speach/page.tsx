@@ -3,9 +3,20 @@ import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { Metadata } from 'next';
 import { speakerDeckEmbeddings } from '../../speacker-deck';
 
+const title = 'Speach';
+const description = `A page compiling slides used in past speaking engagements, events, and lightning talks.`;
+
 export const metadata: Metadata = {
-  title: 'Speach',
-  description: '今までLT会などで発表してきたものをまとめたページ',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+  },
+  twitter: {
+    title: title,
+    description: description,
+  },
 };
 
 export default function Speach() {

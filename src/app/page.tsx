@@ -20,7 +20,7 @@ const greetingTitle = `This is Yajihum's portfolio website `;
 
 export default function Home() {
   const newPosts = getPostsByTag(
-    'life',
+    'tech',
     ['title', 'description', 'pubDate', 'tags', 'icon', 'slug'],
     4,
   );

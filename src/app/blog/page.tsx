@@ -3,9 +3,20 @@ import PostLinks from '@/components/molecules/PostLinks';
 import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
 
+const title = 'Blog';
+const description = `A page featuring blog posts categorized under 'Tech' and 'Life'.`;
+
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'ブログの投稿や、簡単なメモの一覧ページ',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+  },
+  twitter: {
+    title: title,
+    description: description,
+  },
 };
 
 export default function Blog() {
