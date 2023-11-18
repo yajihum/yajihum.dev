@@ -1,6 +1,5 @@
 import H2WithId from '@/components/atoms/H2WithId';
-import { SVGElement } from '@/components/icons';
-import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
+import { LinkToPage } from '@/components/atoms/LinkToPage';
 import PostLinks from '@/components/molecules/PostLinks';
 import SnsLinks from '@/components/molecules/SnsLinks';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
@@ -154,19 +153,5 @@ const SectionTitle = ({
       <H2WithId id={id} title={title} />
       <p className="text-sm md:text-base">{description}</p>
     </div>
-  );
-};
-
-const LinkToPage = ({ href, title }: { href: string; title: string }) => {
-  return (
-    <a href={href} className="flex items-end gap-1 px-1">
-      <p className="text-sm hover:underline md:text-base">{title}</p>
-      <HeroiconsSvgWrapper
-        className="h-5 w-5 text-emerald-400 md:h-6 md:w-6"
-        aria-label={`${title}へ遷移する`}
-      >
-        {SVGElement.chevronRight}
-      </HeroiconsSvgWrapper>
-    </a>
   );
 };
