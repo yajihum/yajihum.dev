@@ -14,13 +14,13 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { getPostsByTag } from '@/lib/blog';
-import { speakerDeckEmbeddings } from '../../speacker-deck';
+import { speakerDeckEmbeddings } from '../speacker-deck';
 
 const greetingTitle = `This is Yajihum's portfolio website `;
 
 export default function Home() {
   const newPosts = getPostsByTag(
-    'tech',
+    'life',
     ['title', 'description', 'pubDate', 'tags', 'icon', 'slug'],
     4,
   );
@@ -132,7 +132,7 @@ export default function Home() {
             />
             <LinkToPage href="/blog" title="Blog Page" />
           </div>
-          <PostLinks items={newPosts} tag="tech" />
+          <PostLinks items={newPosts} tag="life" />
         </section>
       </div>
     </>

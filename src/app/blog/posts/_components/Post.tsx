@@ -1,54 +1,16 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import Stamp from '@/components/molecules/Stamp';
-import { Tag, getAllPosts, getPostBySlug } from '@/lib/blog';
+import { Tag, getPostBySlug } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
-import { Metadata } from 'next';
-import PostContent from './_components/PostContent';
+import PostContent from './PostContent';
 
-export const dynamicParams = false;
-
-export type PostParams = {
-  params: {
-    tag: Tag;
-    slug: string;
-  };
+type Props = {
+  tag: Tag;
+  slug: string;
 };
 
-export async function generateMetadata({
-  params,
-}: PostParams): Promise<Metadata> {
-  const post = getPostBySlug(params.tag, params.slug, [
-    'title',
-    'pubDate',
-    'content',
-    'icon',
-  ]);
-
-  return {
-    title: post.title,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-    },
-    twitter: {
-      title: post.title,
-      description: post.description,
-    },
-  };
-}
-
-export function generateStaticParams() {
-  const posts = getAllPosts(['slug']);
-
-  return posts.map((post) => ({
-    tag: post.tag,
-    slug: post.slug,
-  }));
-}
-
-export default function Page({ params }: PostParams) {
-  const { tag, slug } = params;
+export const Post = ({ tag, slug }: Props) => {
   const post = getPostBySlug(tag, slug, [
     'title',
     'pubDate',
@@ -93,4 +55,4 @@ export default function Page({ params }: PostParams) {
       </section>
     </div>
   );
-}
+};

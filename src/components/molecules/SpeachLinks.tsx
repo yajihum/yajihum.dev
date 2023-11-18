@@ -1,5 +1,5 @@
 import { SVGElement } from '@/components/icons';
-import { SpeakerDeckEmbedding } from '../../../speacker-deck';
+import { SpeakerDeckEmbedding } from '../../speacker-deck';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
 type Props = {

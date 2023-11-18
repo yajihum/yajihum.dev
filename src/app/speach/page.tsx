@@ -1,7 +1,7 @@
 import H2WithId from '@/components/atoms/H2WithId';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { Metadata } from 'next';
-import { speakerDeckEmbeddings } from '../../../speacker-deck';
+import { speakerDeckEmbeddings } from '../../speacker-deck';
 
 export const metadata: Metadata = {
   title: 'Speach',

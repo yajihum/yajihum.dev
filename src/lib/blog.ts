@@ -2,7 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-export type Tag = 'life' | 'tech';
+export type Tag = 'tech' | 'life';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
@@ -65,7 +65,7 @@ export function getPostsByTag(tag: Tag, fields: string[] = [], limit?: number) {
 }
 
 export function getAllPosts(fields: string[] = [], limit?: number) {
-  const tags: Tag[] = ['life', 'tech'];
+  const tags: Tag[] = ['life', 'life'];
   const posts = tags
     .flatMap((tag) => {
       const slugs = listDirectoryFiles(tag);
