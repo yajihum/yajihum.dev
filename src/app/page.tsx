@@ -132,7 +132,7 @@ export default function Home() {
             />
             <LinkToPage href="/blog" title="Blog Page" />
           </div>
-          <PostLinks items={newPosts} tag="life" />
+          <PostLinks items={newPosts} tag="tech" />
         </section>
       </div>
     </>
