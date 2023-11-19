@@ -1,7 +1,6 @@
 'use client';
 
 import { EmojiType, Picker } from 'ms-3d-emoji-picker';
-import 'ms-3d-emoji-picker/styles/index.css';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SVGElement } from '../icons';
