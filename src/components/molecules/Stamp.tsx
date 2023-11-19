@@ -1,9 +1,11 @@
 'use client';
 
 import { EmojiType, Picker } from 'ms-3d-emoji-picker';
+import 'ms-3d-emoji-picker/styles/index.css';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SVGElement } from '../icons';
+import { SmilePlus } from '../icons/SmilePlus';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
@@ -42,22 +44,20 @@ export default function StampContainer() {
   return (
     <section className="flex flex-col gap-4 p-1 md:flex-row md:justify-between md:gap-0">
       <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger className="h-9 w-9 shrink-0">
-          <p className="shrink-0 rounded-lg bg-neutral-800 p-2">
+        <PopoverTrigger className="h-9 w-9 shrink-0 md:h-10 md:w-10">
+          <p className="flex shrink-0 items-center justify-center rounded-lg bg-neutral-800 p-1.5">
             {open ? (
               <HeroiconsSvgWrapper
-                className="h-5 w-5"
-                aria-label="絵文字ピッカーを開く"
+                className="h-6 w-6"
+                aria-label="絵文字ピッカーを閉じる"
               >
                 {SVGElement.minus}
               </HeroiconsSvgWrapper>
             ) : (
-              <HeroiconsSvgWrapper
-                className="h-5 w-5"
-                aria-label="絵文字ピッカーを閉じる"
-              >
-                {SVGElement.plus}
-              </HeroiconsSvgWrapper>
+              <SmilePlus
+                className="h-6 w-6"
+                aria-label="絵文字ピッカーを開く"
+              />
             )}
           </p>
         </PopoverTrigger>
@@ -79,7 +79,7 @@ export default function StampContainer() {
               alt={emoji.name}
               width={36}
               height={36}
-              className="h-8 w-8 rounded-lg bg-neutral-800 p-1 md:h-9 md:w-9"
+              className="h-9 w-9 rounded-lg bg-neutral-800 p-1 md:h-10 md:w-10"
             />
           ))}
       </div>
