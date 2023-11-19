@@ -12,10 +12,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: title,
     description: description,
+    images: ['https://images.yajium.day/ogp.png'],
   },
   twitter: {
     title: title,
     description: description,
+    images: ['https://images.yajium.day/ogp.png'],
   },
 };
 
