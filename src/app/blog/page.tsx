@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     images: ['https://images.yajium.day/ogp.png'],
   },
   twitter: {
+    card: 'summary',
     title: title,
     description: description,
     images: ['https://images.yajium.day/ogp.png'],
