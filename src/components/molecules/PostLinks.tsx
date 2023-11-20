@@ -1,5 +1,6 @@
 import { Items, Tag } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
+import Link from 'next/link';
 import { SVGElement } from '../icons';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
@@ -16,7 +17,7 @@ export default function PostLinks({ items, tag }: Props) {
           key={post.title}
           className="rounded-xl border border-neutral-700 hover:bg-neutral-800"
         >
-          <a
+          <Link
             href={`/blog/posts/${tag}/${post.slug}`}
             className="flex items-center gap-4 p-4 md:p-5"
           >
@@ -41,7 +42,7 @@ export default function PostLinks({ items, tag }: Props) {
                 {post.description}
               </p>
             </div>
-          </a>
+          </Link>
         </article>
       ))}
     </section>
