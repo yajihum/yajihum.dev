@@ -2,27 +2,29 @@ import BasicLayout from '@/components/layouts/BasicLayout';
 import type { Metadata } from 'next';
 import './globals.css';
 
+const siteName = 'yajium.day';
+const description = `Yajihum's personal website`;
+const url = 'https://yajium.day';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://yajium.day/'),
   title: {
-    default: 'yajium.day',
+    default: siteName,
     template: '%s | yajium.day',
   },
-  description: `Yajihum's personal website`,
+  description: description,
   openGraph: {
     type: 'website',
-    title: 'Home | yajihum.day',
-    description: `Yajihum's personal website`,
-    url: 'https://yajium.day',
-    siteName: 'yajium.day',
-    images: ['https://images.yajium.day/ogp.png'],
+    title: 'Home',
+    description: description,
+    url: url,
+    siteName: siteName,
   },
   twitter: {
     card: 'summary',
-    title: 'Home | yajihum.day',
-    description: `Yajihum's personal website`,
+    title: 'Home',
+    description: description,
     creator: '@yajihum',
-    images: ['https://images.yajium.day/ogp.png'],
   },
 };
 

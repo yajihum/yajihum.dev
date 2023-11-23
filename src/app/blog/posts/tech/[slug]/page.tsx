@@ -25,13 +25,11 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.description,
-      images: ['https://images.yajium.day/ogp.png'],
     },
     twitter: {
       card: 'summary',
       title: post.title,
       description: post.description,
-      images: ['https://images.yajium.day/ogp.png'],
     },
   };
 }
