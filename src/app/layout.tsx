@@ -7,7 +7,7 @@ const description = `Yajihum's personal website`;
 const url = 'https://yajium.day';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yajium.day/'),
+  metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
   title: {
     default: siteName,
     template: '%s | yajium.day',
