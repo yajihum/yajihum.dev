@@ -20,12 +20,12 @@ export default function H2WithId({
     <h2
       id={id}
       className={cn(
-        'relative flex scroll-mt-20 items-center gap-1 text-lg font-bold md:gap-0 md:text-2xl',
+        'h2-hover relative flex scroll-mt-20 items-center gap-1 text-lg font-bold md:gap-0 md:text-2xl',
         borderClass,
       )}
     >
       <a id={id} href={`#${id}`} className="md:absolute md:-left-7">
-        <HeroiconsSvgWrapper className="h-6 w-6 text-emerald-500 transition-opacity duration-200 hover:opacity-100 md:opacity-0">
+        <HeroiconsSvgWrapper className="hover-opacity h-6 w-6 text-emerald-500 transition-opacity duration-200 md:opacity-0">
           {SVGElement.hashtag}
         </HeroiconsSvgWrapper>
       </a>
