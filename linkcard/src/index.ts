@@ -84,14 +84,15 @@ app.get('/api/linkCard', async (c) => {
   const days = 24 * 60 * 60;
   c.header('Cache-Control', `public, s-maxage=${1 * days}`);
 
-  const title = titleHandler.title ?? ogpHandler.title;
-  const description = ogpHandler.description;
-  const siteName = parsedUrl.hostname;
   return c.json({
-    title,
-    description,
-    siteName,
-    faviconUrl: faviconHandler.faviconUrl,
+    title: titleHandler.title ?? ogpHandler.title,
+    description: ogpHandler.description,
+    siteName: parsedUrl.hostname,
+    faviconUrl:
+      faviconHandler.faviconUrl.startsWith('http') ||
+      faviconHandler.faviconUrl.startsWith('https')
+        ? faviconHandler.faviconUrl
+        : `${parsedUrl.origin}${faviconHandler.faviconUrl}`,
   });
 });
 

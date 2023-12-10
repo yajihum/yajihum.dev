@@ -97,6 +97,7 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 Astro デフォルトで特にライブラリを追加で導入しなくてもページとして作れる
 特にすごいなと思ったのは、Astro v2 での新規機能の`Content Collections`で、`src/content`配下の md ファイルを自動取得して frontmatter 変数の安全な型検証を行い、md ファイルの情報を取得できる
 frontmatter の型検証で zod が利用されているのも良いなと思った
+
 https://docs.astro.build/en/guides/content-collections/
 
 この機能や Markdown パーサーなどもデフォルトで利用できるのでベースは整っている

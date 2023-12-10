@@ -34,7 +34,7 @@ const PostsListByTag = ({ tag }: { tag: string }) => {
   const lowerCaseTag = tag.toLowerCase() as Tag;
   return (
     <section className="grid grid-cols-1 gap-3">
-      <H2WithId id="all-posts" title={tag} />
+      <H2WithId id={lowerCaseTag} title={tag} />
       <PostLinks items={getPosts(lowerCaseTag)} tag={lowerCaseTag} />
     </section>
   );

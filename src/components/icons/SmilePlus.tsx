@@ -23,7 +23,7 @@ export function SmilePlus({
         stroke="none"
         strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g id="smile-plus" fill="#ffff">
           <path
