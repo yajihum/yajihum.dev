@@ -48,15 +48,15 @@ const LinkCard = async ({ href }: { href: string }) => {
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
 
   return (
-    <div className="rounded-xl border-4 bg-neutral-200 shadow shadow-neutral-300 transition-colors duration-300 hover:border-neutral-300 hover:bg-neutral-50">
+    <div className="rounded-xl border-4 bg-neutral-100 shadow shadow-neutral-300 transition-colors duration-300 hover:border-neutral-500 hover:bg-neutral-50">
       <a
         href={href}
         className="block px-4  pt-4 font-light text-black no-underline hover:text-black md:px-8 md:pb-2 md:pt-6"
       >
         <div className="grid grid-cols-1 gap-2">
-          {ogp.title && <p className="m-0 text-sm md:text-lg">{ogp.title}</p>}
+          {ogp.title && <p className="m-0 text-sm md:text-base">{ogp.title}</p>}
           {ogp.description && (
-            <p className="m-0 text-xs text-neutral-600 md:text-base">
+            <p className="m-0 line-clamp-2 text-xs text-neutral-600 md:text-sm">
               {ogp.description}
             </p>
           )}
@@ -70,7 +70,7 @@ const LinkCard = async ({ href }: { href: string }) => {
             height={10}
             className="!w-5 flex-shrink-0"
           />
-          <p className="m-4 text-xs text-neutral-600 md:text-base">
+          <p className="m-4 text-xs text-neutral-600 md:text-sm">
             {ogp.siteName}
           </p>
         </div>
