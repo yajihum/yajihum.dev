@@ -2,23 +2,30 @@ import H2WithId from '@/components/atoms/H2WithId';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { Metadata } from 'next';
 import { speakerDeckEmbeddings } from '../../speacker-deck';
+import { metadata } from '../layout';
 
 const title = 'Speach';
 const description = `A page compiling slides used in past speaking engagements, events, and lightning talks.`;
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
+export async function generateMetadata(): Promise<Metadata> {
+  const baseMetadata = metadata;
+
+  return {
     title: title,
     description: description,
-  },
-  twitter: {
-    card: 'summary',
-    title: title,
-    description: description,
-  },
-};
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title: title,
+      description: description,
+    },
+    twitter: {
+      ...baseMetadata.twitter,
+      card: 'summary',
+      title: title,
+      description: description,
+    },
+  };
+}
 
 export default function Speach() {
   return (

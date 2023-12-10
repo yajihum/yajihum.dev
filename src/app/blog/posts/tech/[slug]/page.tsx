@@ -1,3 +1,4 @@
+import { metadata } from '@/app/layout';
 import { getPostBySlug, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
 import { Post } from '../../_components/Post';
@@ -19,15 +20,17 @@ export async function generateMetadata({
     'content',
     'icon',
   ]);
+  const baseMetadata = metadata;
 
   return {
     title: post.title,
     openGraph: {
+      ...baseMetadata.openGraph,
       title: post.title,
       description: post.description,
     },
     twitter: {
-      card: 'summary',
+      ...baseMetadata.twitter,
       title: post.title,
       description: post.description,
     },

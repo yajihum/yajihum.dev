@@ -15,7 +15,7 @@ export default function PostLinks({ items, tag }: Props) {
       {items.map((post) => (
         <article
           key={post.title}
-          className="rounded-xl border border-neutral-700 hover:bg-neutral-800"
+          className="rounded-xl border border-neutral-700 bg-neutral-800 hover:bg-neutral-700"
         >
           <Link
             href={`/blog/posts/${tag}/${post.slug}`}

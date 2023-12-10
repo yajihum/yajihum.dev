@@ -2,23 +2,29 @@ import H2WithId from '@/components/atoms/H2WithId';
 import PostLinks from '@/components/molecules/PostLinks';
 import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
+import { metadata } from '../layout';
 
 const title = 'Blog';
 const description = `A page featuring blog posts categorized under 'Tech' and 'Life'.`;
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
+export function generateMetadata(): Metadata {
+  const baseMetadata = metadata;
+
+  return {
     title: title,
     description: description,
-  },
-  twitter: {
-    card: 'summary',
-    title: title,
-    description: description,
-  },
-};
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title: title,
+      description: description,
+    },
+    twitter: {
+      ...baseMetadata.twitter,
+      title: title,
+      description: description,
+    },
+  };
+}
 
 export default function Blog() {
   return (

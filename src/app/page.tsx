@@ -58,7 +58,7 @@ export default function Home() {
             title="About"
             description="Here is my introduction and my social media links."
           />
-          <Card className="border border-neutral-700 bg-neutral-900 text-white backdrop-blur transition-colors">
+          <Card className="border border-neutral-700 bg-neutral-800 text-white backdrop-blur transition-colors">
             <CardHeader className="grid grid-cols-1 gap-3">
               <CardTitle>
                 <p className="flex items-center gap-2 text-xl">
@@ -108,7 +108,7 @@ export default function Home() {
         </section>
         <section
           className="grid grid-cols-1 place-items-stretch gap-3"
-          aria-label="works"
+          aria-label="speach"
         >
           <div className="flex flex-col gap-2 md:flex-row md:place-content-between">
             <SectionTitle
@@ -122,7 +122,7 @@ export default function Home() {
         </section>
         <section
           className="grid grid-cols-1 place-items-stretch gap-3"
-          aria-label="works"
+          aria-label="blog"
         >
           <div className="flex flex-col place-content-between gap-2 md:flex-row">
             <SectionTitle

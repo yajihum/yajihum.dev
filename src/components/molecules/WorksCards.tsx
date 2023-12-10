@@ -30,7 +30,7 @@ export default function WorksCards() {
       {works.map((work) => (
         <li
           key={work.name}
-          className="rounded-xl border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
+          className="rounded-xl border border-neutral-700 bg-neutral-800 hover:bg-neutral-700"
         >
           <a href={work.url} target="_blank" className="grid grid-cols-1 gap-1">
             <div className="relative" style={{ aspectRatio: '2' }}>
