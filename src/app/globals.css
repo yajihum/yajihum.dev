@@ -78,3 +78,20 @@
 .h2-hover:hover a .hover-opacity {
   opacity: 1;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #22272d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8e969e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666d75;
+}
