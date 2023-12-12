@@ -51,6 +51,7 @@ const LinkCard = async ({ href }: { href: string }) => {
     <div className="rounded-xl border-4 bg-neutral-100 shadow shadow-neutral-300 transition-colors duration-300 hover:border-neutral-500 hover:bg-neutral-50">
       <a
         href={href}
+        target="_blank"
         className="block px-4  pt-4 font-light text-black no-underline hover:text-black md:px-8 md:pb-2 md:pt-6"
       >
         <div className="grid grid-cols-1 gap-2">
@@ -89,7 +90,12 @@ const Anchor = ({ href, children }: AnchorProps) => {
     (!children.toString().startsWith('http') ||
       !children.toString().startsWith('https'));
 
-  if (isInlineLink) return <a href={href}>{children}</a>;
+  if (isInlineLink)
+    return (
+      <a href={href} target="_blank">
+        {children}
+      </a>
+    );
 
   if (!href) return null;
 

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { SVGElement } from '../icons';
 import { SnsSvgWrapper } from '../icons/svg-wapper';
 
@@ -42,7 +43,7 @@ export default function SnsLinks() {
     <ul className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-0">
       {snsLinks.map((link) => (
         <li key={link.name}>
-          <a href={link.url} target="_blank" className="flex gap-2">
+          <Link href={link.url} target="_blank" className="flex gap-2">
             <SnsSvgWrapper
               fill={link.fill}
               className="rounded-md bg-white p-1.5"
@@ -55,7 +56,7 @@ export default function SnsLinks() {
                 {link.userName}
               </p>
             </div>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

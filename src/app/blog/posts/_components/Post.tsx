@@ -3,6 +3,7 @@ import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import Stamp from '@/components/molecules/Stamp';
 import { Tag, getPostBySlug } from '@/lib/blog';
 import { emojiDomain } from '@/lib/cloudflare';
+import Link from 'next/link';
 import PostContent from './PostContent';
 
 type Props = {
@@ -43,7 +44,7 @@ export const Post = ({ tag, slug }: Props) => {
       </section>
       <Stamp />
       <section>
-        <a
+        <Link
           href="/blog"
           className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-neutral-200 px-4 py-2 font-semibold text-neutral-800 hover:bg-white hover:text-black"
         >
@@ -51,7 +52,7 @@ export const Post = ({ tag, slug }: Props) => {
             {SVGElement.allowUturnLeft}
           </HeroiconsSvgWrapper>
           Back to Blog
-        </a>
+        </Link>
       </section>
     </div>
   );
