@@ -58,6 +58,9 @@ class FaviconHandler {
   }
 }
 
+const hasValidPrefix = (url: string) =>
+  ['http', 'https', 'data'].some((prefix) => url.startsWith(prefix));
+
 app.get('/api/linkCard', async (c) => {
   const url = c.req.query('url');
   if (url === undefined) {
@@ -88,11 +91,9 @@ app.get('/api/linkCard', async (c) => {
     title: titleHandler.title ?? ogpHandler.title,
     description: ogpHandler.description,
     siteName: parsedUrl.hostname,
-    faviconUrl:
-      faviconHandler.faviconUrl.startsWith('http') ||
-      faviconHandler.faviconUrl.startsWith('https')
-        ? faviconHandler.faviconUrl
-        : `${parsedUrl.origin}${faviconHandler.faviconUrl}`,
+    faviconUrl: hasValidPrefix(faviconHandler.faviconUrl)
+      ? faviconHandler.faviconUrl
+      : `${parsedUrl.origin}${faviconHandler.faviconUrl}`,
   });
 });
 
