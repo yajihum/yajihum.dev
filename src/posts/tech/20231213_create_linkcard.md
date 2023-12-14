@@ -260,6 +260,19 @@ faviconのURLがhttpやhttps,dataから始まる場合はそのまま返し、�
 
 これで、APIの実装は完成です！
 
+## Workersにデプロイする
+
+CLoudflareのアカウントの作成、wranglerでのログインを済ませます（以下を参考）
+
+https://reffect.co.jp/html/cloudflare-workers#Cloudflare_Workers
+
+その後、以下のコマンドを実行すればデプロイ完了です！
+```
+npm run deploy
+```
+
+これで、コマンドに記載されているURLを通してAPIにアクセスできます。
+
 ## パフォーマンス
 
 CloudflareのWorkersの詳細画面を見ると、CPU時間の中央値は5.1msなのでfreeプランの10ms以内をクリアしているので、ひとまずは大丈夫そうです

@@ -124,7 +124,7 @@ const Paragraph = ({ children }: ParagraphProps) => {
 
   if (Array.isArray(children) && isImage(children)) {
     return (
-      <div className="my-10 grid grid-cols-1 justify-items-center">
+      <div className="my-8 grid grid-cols-1 justify-items-center">
         {children.map((child) => {
           return child;
         })}
@@ -135,7 +135,7 @@ const Paragraph = ({ children }: ParagraphProps) => {
     return <>{children}</>;
   }
 
-  return <p className="my-10">{children}</p>;
+  return <p className="my-8">{children}</p>;
 };
 
 type CodeProps = ClassAttributes<HTMLElement> &
@@ -157,7 +157,9 @@ const CodeBlock = ({ className, children, node }: CodeProps) => {
           <span>{filename}</span>
         </div>
       )}
-      <code className={cn('scrollbar-dark', className)}>{children}</code>
+      <code className={cn('scrollbar-dark break-all', className)}>
+        {children}
+      </code>
     </>
   );
 };

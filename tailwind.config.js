@@ -86,6 +86,11 @@ module.exports = {
             h2: {
               'scroll-margin-top': '100px',
             },
+            li: {
+              '&::marker': {
+                color: '#BEC3C9',
+              },
+            },
           },
         },
       },
