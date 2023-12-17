@@ -66,7 +66,7 @@ export default function StampContainer() {
           sideOffset={10}
           align="start"
         >
-          <Picker isOpen={open} onEmojiSelect={handleSelectEmoji} />
+          <Picker isOpen={open} handleEmojiSelect={handleSelectEmoji} />
         </PopoverContent>
       </Popover>
       <div className="flex gap-1 md:grid md:grid-flow-col md:grid-cols-none">
