@@ -24,9 +24,9 @@ const snsLinks = [
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/yajium',
+    url: 'https://www.instagram.com/yajihum',
     icon: SVGElement.instagram,
-    userName: '@yajium',
+    userName: '@yajihum',
     fill: '#E4405F',
   },
   {
