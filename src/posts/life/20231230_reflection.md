@@ -1,7 +1,7 @@
 ---
 title: '2023年の振り返りと来年の抱負'
 description: '2023年の振り返りと来年の抱負を書きました。'
-pubDate: '2023/12/30 19:56'
+pubDate: '2023/12/30 21:44'
 tags: ['private']
 icon: 'travel-and-place/156'
 ---
