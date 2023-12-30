@@ -8,6 +8,7 @@ import {
   isValidElement,
 } from 'react';
 import type { ExtraProps } from 'react-markdown';
+import { Tweet } from 'react-tweet';
 import { linkcardEntryPoint } from './cloudflare';
 import { cn } from './utils';
 
@@ -85,20 +86,23 @@ type AnchorProps = ClassAttributes<HTMLAnchorElement> &
   ExtraProps;
 
 const Anchor = ({ href, children }: AnchorProps) => {
+  if (!href) return null;
+
   const isInlineLink =
     children &&
     (!children.toString().startsWith('http') ||
       !children.toString().startsWith('https'));
 
-  if (isInlineLink)
+  if (isInlineLink) return <a href={href}>{children}</a>;
+
+  if (checkTwitterLink(href)) {
+    const tweetId = extractTweetId(href);
     return (
-      <a href={href} target="_blank">
-        {children}
-      </a>
+      <section className="not-prose flex justify-center">
+        <Tweet id={tweetId} />
+      </section>
     );
-
-  if (!href) return null;
-
+  }
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <LinkCard href={href} />
@@ -198,4 +202,14 @@ export const ReactMarkdownComponents = {
   p: Paragraph,
   code: CodeBlock,
   pre: Pre,
+};
+
+const checkTwitterLink = (href: string) => {
+  const pattern = /(?:x\.com|twitter\.com)/;
+  return pattern.test(href);
+};
+
+const extractTweetId = (href: string) => {
+  const match = href.match(/\/status\/(\d+)/);
+  return match ? match[1] : '';
 };
