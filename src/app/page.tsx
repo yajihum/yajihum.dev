@@ -33,7 +33,7 @@ export default function Home() {
 					<p className="flex items-center text-lg md:text-2xl">
 						<span className="inline-block">{greetingTitle}</span>
 						<img
-							src="https://cdn.emoji.yajium.day/animals-and-nature/131.png"
+							src="https://cdn.emoji.yajihum.dev/animals-and-nature/131.png"
 							height="30"
 							alt="芽が出ている絵文字"
 							className="inline-block h-6 w-6 md:h-8 md:w-8"
@@ -41,7 +41,7 @@ export default function Home() {
 					</p>
 				</section>
 				<img
-					src="https://images.yajium.day/rorisu.png"
+					src="https://images.site.yajihum.dev/rorisu.png"
 					width={200}
 					height={200}
 					alt="正面から見て左に体を傾け左腕をあげているロリスの画像"

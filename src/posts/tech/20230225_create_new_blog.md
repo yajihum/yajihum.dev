@@ -24,10 +24,10 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
 - Figma
 
 **スマホ**
-![Figma デザイン(スマホ)](https://images.yajium.day/images/2023/02/create_new_blog/figma_smartphone.png)
+![Figma デザイン(スマホ)](https://images.site.yajihum.dev/images/2023/02/create_new_blog/figma_smartphone.png)
 
 **デスクトップ**
-![Figma デザイン(デスクトップ)](https://images.yajium.day/images/2023/02/create_new_blog/figma_desctop.png)
+![Figma デザイン(デスクトップ)](https://images.site.yajihum.dev/images/2023/02/create_new_blog/figma_desctop.png)
 
 - TailwindCSS
 - daisyUI
@@ -52,7 +52,7 @@ Next.js は SPA で Astro は MPA という大きな違いがあるのでユー�
   結構簡単で、ベースの画像を用意してそれ用の URL が出来るのでその URL に title などのテキストを付与すれば動的に OGP 画像を生成出来ちゃう優れもの
   ただ、フォントを本当は NotoSnasJP を使いたかったのだが無理そうなので Sawarabi にしている
 
-![yajium.dayのサイトのogp画像](https://images.yajium.day/images/2023/02/create_new_blog/ogp_image.png)
+![yajium.dayのサイトのogp画像](https://images.site.yajihum.dev/images/2023/02/create_new_blog/ogp_image.png)
 
 ### サーバー設定
 
