@@ -1,10 +1,13 @@
 module.exports = {
 	ci: {
 		collect: {
-			// startServerCommand: "pnpm start",
-			// url: ["http://localhost:3000/"],
+			startServerCommand: "pnpm start",
+			url: [
+				"http://localhost/",
+				"http://localhost/blog/",
+				"http://localhost/blog/posts/life/20231230_reflection",
+			],
 			numberOfRuns: 1,
-			staticDistDir: "./build",
 		},
 		upload: {
 			target: "temporary-public-storage",
