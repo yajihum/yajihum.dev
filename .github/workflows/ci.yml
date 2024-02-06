@@ -15,7 +15,7 @@ jobs:
           node-version: 18.x
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Check build command
+      - name: run build
         run: pnpm build
       - name: run Lighthouse CI
         run: |
