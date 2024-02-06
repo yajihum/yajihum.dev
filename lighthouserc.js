@@ -10,7 +10,7 @@ module.exports = {
 			numberOfRuns: 1,
 			settings: {
 				locale: "ja",
-				formFactor: "desktop",
+				emulatedFormFactor: "desktop",
 			},
 		},
 		upload: {
