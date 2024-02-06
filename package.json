@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve:lhci": "pnpm start"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
@@ -47,6 +48,7 @@
     "zenn-content-css": "^0.1.147"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.13.0",
     "@tailwindcss/typography": "^0.5.10",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4"

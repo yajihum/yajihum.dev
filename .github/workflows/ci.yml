@@ -17,5 +17,5 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: run Lighthouse CI
         run: |
-          npm install -g @lhci/cli@0.13.x
-          lhci autorun
+          pnpm add -g @lhci/cli@0.13.x
+          lhci autorun --config=./lighthouserc.js

@@ -36,3 +36,6 @@ next-env.d.ts
 
 #http client
 *.http
+
+# lighthouse
+.lighthouseci
