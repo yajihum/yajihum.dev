@@ -4,6 +4,7 @@ module.exports = {
 			startServerCommand: "pnpm start",
 			url: [
 				"http://localhost:3000",
+				"http://localhost:3000/speach",
 				"http://localhost:3000/blog",
 				"http://localhost:3000/blog/posts/life/20231230_reflection",
 			],
@@ -14,7 +15,8 @@ module.exports = {
 			},
 		},
 		upload: {
-			target: "temporary-public-storage",
+			target: "lhci",
+			serverBaseUrl: "https://lhci-sxdovw3jqa-an.a.run.app",
 		},
 	},
 };
