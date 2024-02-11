@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "serve:lhci": "pnpm start"
+    "lint": "next lint"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
