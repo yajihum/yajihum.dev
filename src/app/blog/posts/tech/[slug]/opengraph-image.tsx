@@ -2,6 +2,7 @@ import { getPostBySlug } from '@/lib/blog';
 import { loadGoogleFont } from '@/lib/font';
 import { ImageResponse } from 'next/server';
 
+export const dynamicParams = false;
 export const runtime = 'nodejs';
 export const revalidate = 10;
 
