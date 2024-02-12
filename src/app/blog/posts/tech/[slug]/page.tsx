@@ -31,6 +31,7 @@ export async function generateMetadata({
     },
     twitter: {
       ...baseMetadata.twitter,
+      card: 'summary_large_image',
       title: post.title,
       description: post.description,
     },
@@ -46,5 +47,5 @@ export function generateStaticParams() {
 }
 
 export default function Page({ params }: PostParams) {
-  return <Post tag="tech" slug={params.slug} />;
+  return <Post tag='tech' slug={params.slug} />;
 }
