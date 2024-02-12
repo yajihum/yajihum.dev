@@ -1,20 +1,21 @@
 import { metadata } from '@/app/layout';
 import { getPostBySlug, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
-import { Post } from '../../_components/Post';
+import { Post } from '../../../_components/Post';
 
 export const dynamicParams = false;
 
 export type PostParams = {
   params: {
     slug: string;
+    title: string;
   };
 };
 
 export async function generateMetadata({
   params,
 }: PostParams): Promise<Metadata> {
-  const post = getPostBySlug('life', params.slug, [
+  const post = getPostBySlug('tech', params.slug, [
     'title',
     'pubDate',
     'content',
@@ -39,7 +40,7 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  const posts = getPostsByTag('life', ['slug']);
+  const posts = getPostsByTag('tech', ['slug']);
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -47,5 +48,5 @@ export function generateStaticParams() {
 }
 
 export default function Page({ params }: PostParams) {
-  return <Post tag='life' slug={params.slug} />;
+  return <Post tag='tech' slug={params.slug} />;
 }

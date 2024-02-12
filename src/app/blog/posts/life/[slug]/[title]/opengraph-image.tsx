@@ -3,7 +3,7 @@ import { loadGoogleFont } from '@/lib/font';
 import { ImageResponse } from 'next/server';
 
 export const dynamicParams = false;
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 export const revalidate = 10;
 
 export const alt = "Article's Featured Image";
@@ -24,7 +24,7 @@ export default async function Image({ params: { slug } }: Props) {
     weight: 700,
   });
 
-  const post = getPostBySlug('tech', slug, ['title']);
+  const post = getPostBySlug('life', slug, ['title']);
 
   return new ImageResponse(
     <div
