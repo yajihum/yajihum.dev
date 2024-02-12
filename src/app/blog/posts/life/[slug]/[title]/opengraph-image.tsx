@@ -1,4 +1,3 @@
-import { getPostBySlug } from '@/lib/blog';
 import { loadGoogleFont } from '@/lib/font';
 import { ImageResponse } from 'next/server';
 
@@ -15,16 +14,15 @@ export const size = {
 export const contentType = 'image/png';
 
 type Props = {
-  params: { slug: string };
+  params: { title: string };
 };
 
-export default async function Image({ params: { slug } }: Props) {
+export default async function Image({ params: { title } }: Props) {
   const notoSansArrayBuffer = await loadGoogleFont({
     family: 'Noto Sans JP',
     weight: 700,
   });
-
-  const post = getPostBySlug('life', slug, ['title']);
+  const decodedTitle = decodeURIComponent(title);
 
   return new ImageResponse(
     <div
@@ -49,7 +47,7 @@ export default async function Image({ params: { slug } }: Props) {
           width: '100%',
         }}
       >
-        {post.title}
+        {decodedTitle}
       </div>
     </div>,
     {
