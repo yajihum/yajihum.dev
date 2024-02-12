@@ -1,10 +1,9 @@
 dbs:
-  - path: /data/lhci.db # データベースファイルのローカルパス
+  - path: /data/lhci.db
     replicas:
-      # アクセスキーやシークレットキーはdocker-compose.ymlで定義
-      - type: s3 # レプリケート先のタイプ
-        endpoint: ${R2_ENDPOINT} # エンドポイント
-        bucket: ${R2_BUCKET} # バケット名
-        sync-interval: 1s # レプリカにプッシュされる頻度
-        access-key-id: ${R2_ACCESS_KEY_ID} # アクセスキー
-        secret-access-key: ${R2_SECRET_ACCESS_KEY} # シークレットキー
+      - type: s3
+        endpoint: ${R2_ENDPOINT}
+        bucket: ${R2_BUCKET}
+        sync-interval: 1s
+        access-key-id: ${R2_ACCESS_KEY_ID}
+        secret-access-key: ${R2_SECRET_ACCESS_KEY}
