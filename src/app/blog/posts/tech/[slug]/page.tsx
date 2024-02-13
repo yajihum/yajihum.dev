@@ -1,14 +1,14 @@
 import { metadata } from '@/app/layout';
 import { getPostBySlug, getPostsByTag } from '@/lib/blog';
+import { getOgpImageUrl } from '@/lib/cloudinary';
 import { Metadata } from 'next';
-import { Post } from '../../../_components/Post';
+import { Post } from '../../_components/Post';
 
 export const dynamicParams = false;
 
 export type PostParams = {
   params: {
     slug: string;
-    title: string;
   };
 };
 
@@ -22,6 +22,7 @@ export async function generateMetadata({
     'icon',
   ]);
   const baseMetadata = metadata;
+  const ogpImageUrl = getOgpImageUrl(post.title);
 
   return {
     title: post.title,
@@ -29,9 +30,11 @@ export async function generateMetadata({
       ...baseMetadata.openGraph,
       title: post.title,
       description: post.description,
+      images: [ogpImageUrl],
     },
     twitter: {
       ...baseMetadata.twitter,
+      images: [ogpImageUrl],
       card: 'summary_large_image',
       title: post.title,
       description: post.description,

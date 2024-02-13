@@ -18,7 +18,7 @@ export default function PostLinks({ items, tag }: Props) {
           className='rounded-xl border border-neutral-700 bg-neutral-800 hover:bg-neutral-700'
         >
           <Link
-            href={`/blog/posts/${tag}/${post.slug}/${post.title}`}
+            href={`/blog/posts/${tag}/${post.slug}`}
             className='flex items-center gap-4 p-4 md:p-5'
           >
             <div className='flex max-h-20 items-center rounded-xl bg-white p-2 md:w-1/4'>
