@@ -5,7 +5,7 @@ import './globals.css';
 const siteName = 'yajihum.dev';
 const description = `Yajihum's personal website`;
 const url = 'https://yajihum.dev';
-export const ogImageUrl = 'https://images.site.yajihum.dev/ogp.png';
+export const ogImageUrl = 'https://images.site.yajihum.dev/ogp-default.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: siteName,
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Home',
     description: description,
     creator: '@yajihum',
