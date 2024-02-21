@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 
 export default function Header() {
   return (
-    <header className='sticky top-0 z-10 bg-neutral-900/50 py-2 backdrop-blur transition-colors border-b border-stone-800'>
+    <header className='sticky top-0 z-10 bg-neutral-900/60 py-2 backdrop-blur transition-colors border-b border-stone-800'>
       <div className='mx-auto flex max-w-3xl items-center justify-between px-4 md:px-0'>
         <Link href='/' className='hover:underline'>
           <h2 className='flex items-center gap-1.5 text-lg font-bold md:items-end md:text-xl'>
