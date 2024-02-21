@@ -21,7 +21,7 @@ export default function SideBar({
 }: Props) {
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
-      <SheetTrigger className='py-3'>
+      <SheetTrigger className='py-1'>
         <HeroiconsSvgWrapper className='h-6 w-6'>
           {SVGElement.humburger}
         </HeroiconsSvgWrapper>
