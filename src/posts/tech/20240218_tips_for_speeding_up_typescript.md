@@ -28,7 +28,7 @@ TypeScriptはJavaScriptに型情報を追加した言語で、コードを実行
 2. **編集体験**  
 編集体験とは、VSCodeなどのIDEやテキストエディターでコードを書く際の体験を指します。これらのツールを用いてTypeScriptを記述する際の型チェック、自動補完、リファクタリングなどの機能の動作速度は、TypeScriptのパフォーマンスに直結します。  
 
-ドキュメントではパフォーマンスを上げる方法としていくつか書かれていますが、今回はコンパイルしやすいコードにするためのTipsを見ていきます。
+ドキュメントではパフォーマンスを上げる方法がいくつか挙げられていますが、今回はコンパイルしやすいコードにするためのTipsを見ていきます。
 
 ## 型宣言にはtypeよりもinterfaceを使う
 
@@ -135,7 +135,7 @@ interface IC extends IA, IB {
 型注釈を積極的に使用することでコンパイラの作業負担を大幅に減らすことができます。
 型注釈とは以下のように変数やオブジェクトに対して型を指定して限定させるものです。
 ```ts
-const num: number = 123;
+const numberOfHappy: number = 123;
 ```
 https://typescriptbook.jp/reference/values-types-variables/type-annotation
 
@@ -148,19 +148,19 @@ https://typescriptbook.jp/reference/values-types-variables/type-annotation
 ```ts
 // foo.ts
 export interface Result {
-    headers: any;
-    body: string;
+  headers: any;
+  body: string;
 }
 
 export async function makeRequest(): Promise<Result> {
-    throw new Error("unimplemented");
+  throw new Error("unimplemented");
 }
 
 // bar.ts
 import { makeRequest } from "./foo";
 
 export function doStuff() {
-    return makeRequest();
+  return makeRequest();
 }
 ```
 
@@ -169,8 +169,8 @@ export function doStuff() {
 ```ts
 // foo.d.ts
 export interface Result {
-    headers: unknown;
-    body: string;
+  headers: unknown;
+  body: string;
 }
 export declare function makeRequest(): Promise<Result>;
 
@@ -178,7 +178,7 @@ export declare function makeRequest(): Promise<Result>;
 export declare function doStuff(): Promise<import("./foo").Result>;
 ```
 
-このように型注釈をつけないとdoStuffの戻り値の型が`Promise<import("./foo").Result>`となっています。importとなっていることから分かるようにTypeScriptでは別ファイルからわざわざResult型を取得しています。流れとしては次のようになっています。
+このように型注釈をつけないとdoStuffの戻り値の型が`Promise<import("./foo").Result>`となっています。importとなっていることから分かるようにTypeScriptでは別ファイルからResult型を取得しています。流れとしては次のようになっています。
 
 1. 参照したい型が現在のスコープ内で直接アクセス可能かどうかを確認（同じファイル内で定義された型やインポートされた型など）
 2. アクセス可能でない場合、他のモジュールからインポートできるかどうかを確認する
@@ -186,7 +186,7 @@ export declare function doStuff(): Promise<import("./foo").Result>;
 4. 型参照を表現するための新しいノード（ASTの一部）を生成する。これは型注釈としてその型を使用するためのコードとなる
 5. 生成された型参照ノードを出力して生成されたコード（型注釈）を実際のTypeScriptファイルに書き出す
 
-このように型注釈がない場合はいくつかのステップを踏む必要があり、コンパイルに多少の時間がかかることがわかります。
+このように型注釈がない場合はゴールであるResult型を探すためにいくつかのステップを踏む必要があり、コンパイルに多少の時間がかかることがわかります。
 
 一方で戻り値に型注釈をつけた場合のコンパイル結果は以下のようになります。
 ```ts
@@ -194,7 +194,7 @@ export declare function doStuff(): Promise<import("./foo").Result>;
 import { Result, makeRequest } from "./foo";
 
 export function doStuff(): Promise<Result> {
-	return makeRequest();
+  return makeRequest();
 }
 
 // bar.d.ts
@@ -214,7 +214,7 @@ TypeScriptではユニオン型を使用して複数の型を一つの方にま�
 let numberOfHappy: number | undefined;
 ```
 
-ユニオン型を使用すると、それぞれの型が異なる可能性があるためコンパイラはそれぞれをチェックする必要があります。
+ユニオン型を使用すると、それぞれの型が異なる可能性があるためコンパイラは各型をチェックする必要があります。
 例えば、以下の`printSchedule`関数では引数が渡されるたびにユニオン型の各要素の比較の処理が走ります。
 
 ```ts
@@ -236,7 +236,7 @@ interface WeekendSchedule {
 declare function printSchedule(schedule: WeekdaySchedule | WeekendSchedule);
 ```
 比較する型が2つしかない場合はそこまでコストはかからないですが、12個以上になるとコンパイル速度に大きな差が生じます。  
-例えば、大きなユニオン型同士を交差（合成）させるときを考えます。ユニオン型の各要素から重複するプロパティを削除する場合は各要素を2つずつ比較する必要があり、比較する要素が増えれば増えるほどコストは2次関数的に急増していきます。  
+例えば、大きなユニオン型同士を交差（合成）させるときを考えます。ユニオン型の各要素から重複するプロパティを削除する場合は各要素を2つずつ比較する必要があり、比較する要素が増えれば増えるほどコストはn^2ずつ増加していきます。  
 
 この問題を解決するための手段として、ユニオン型ではなく部分型(`subtype`)を使用する方法があります。一番最初の[型宣言にはtypeよりもinterfaceを使う](#型宣言にはtypeよりもinterfaceを使う)部分で登場しました。  
 
@@ -288,10 +288,10 @@ interface SomeType<T> {
       U;
 }
 ```
-この書き方の場合、関数fooが実行されるたびに戻り値の型の条件型を検証する必要があります。また、例えばSomeType型の複数のインスタンスを比較することになった際にはfooの戻り値の型の構造を再度検証する必要があります。
-上記のような複雑な条件分岐を持つ型は、型の比較が行われるたびに型の検証が行われるため、パフォーマンスに影響を与える可能性があります。
+この書き方の場合、関数fooが実行されるたびに戻り値の条件型を検証する必要があります。また、例えばSomeType型の複数のインスタンスを比較することになった際にはfooの戻り値の型構造を再度検証する必要があります。
+上記のような複雑な条件分岐を持つ型は、型の比較が行われるたびに型が検証されるため、パフォーマンスに影響を与える可能性があります。
 
-このコストを抑える方法として、型エイリアスを使用して戻り値の型を名前付けを行うと良いです。
+このコストを抑える方法として、型エイリアスを使用して戻り値の型に名前付けを行うと良いです。
 ```ts
 type FooResult<U, T> =
     U extends TypeA<T> ? ProcessTypeA<U, T> :

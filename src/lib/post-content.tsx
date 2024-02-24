@@ -15,13 +15,22 @@ import { cn } from './utils';
 const H2 = ({
   node,
   children,
+  id,
 }: ClassAttributes<HTMLHeadingElement> &
   HTMLAttributes<HTMLHeadingElement> &
   ExtraProps) => {
   const title =
-    node?.children[0] && 'value' in node?.children[0]
+    node?.children[0] && 'value' in node.children[0]
       ? node?.children[0].value
       : '';
+
+  if (id === 'footnote-label') {
+    return (
+      <H2WithId id={id} hasBorder={true}>
+        脚注
+      </H2WithId>
+    );
+  }
 
   return (
     <H2WithId id={title} hasBorder={true}>
