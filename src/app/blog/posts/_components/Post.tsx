@@ -51,7 +51,7 @@ export const Post = ({ tag, slug }: Props) => {
           rel='noopener noreferrer'
           className='flex items-center gap-1.5 border border-neutral-400 rounded-full hover:bg-neutral-800 text-sm text-white px-4 py-2'
         >
-          <SnsSvgWrapper fill='#fff' className='h-5 w-5'>
+          <SnsSvgWrapper fill='#fff' className='h-5 w-5 md:h-5 md:w-5'>
             {SVGElement.github}
           </SnsSvgWrapper>
           GitHubで編集を提案
