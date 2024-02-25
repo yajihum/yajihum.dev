@@ -1,5 +1,6 @@
 import H2WithId from '@/components/atoms/H2WithId';
 import { LinkToPage } from '@/components/atoms/LinkToPage';
+import { PhotosCarousel } from '@/components/molecules/PhotosCarousel';
 import PostLinks from '@/components/molecules/PostLinks';
 import SnsLinks from '@/components/molecules/SnsLinks';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
@@ -149,6 +150,16 @@ export default function Home() {
             <LinkToPage href='/blog' title='Blog Page' />
           </div>
           <PostLinks items={newPosts} tag='tech' />
+        </section>
+        <section className='grid grid-cols-1 gap-5 md:gap-10 justify-center'>
+          <SectionTitle
+            id='extras'
+            title='Extras'
+            description='Here are the photos I took and like.'
+          />
+          <div className='flex justify-center'>
+            <PhotosCarousel />
+          </div>
         </section>
       </div>
     </>
