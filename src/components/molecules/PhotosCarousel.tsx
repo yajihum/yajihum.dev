@@ -40,11 +40,6 @@ const items: Items[] = [
     url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Fmakimaki_rorisu.jpg',
   },
   {
-    name: 'お風呂で熱湯消毒されるぬいぐるみたち',
-    'aria-label': 'お風呂で熱湯消毒されるぬいぐるみたちの写真',
-    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Fbath_stuffed_toy.png',
-  },
-  {
     name: 'ブランケットをかけてお昼寝するピータンとロリス',
     'aria-label': 'ブランケットをかけてお昼寝するピータンとロリスの写真',
     url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_peetan_neru.png',
