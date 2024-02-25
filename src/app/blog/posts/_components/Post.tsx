@@ -44,7 +44,22 @@ export const Post = ({ tag, slug }: Props) => {
       <section className='rounded-xl p-1'>
         <PostContent content={post.content} />
       </section>
-      <section className='flex justify-end'>
+      <Stamp />
+      <section className='flex justify-between items-center'>
+        <a
+          href={`https://twitter.com/intent/tweet?text=${post.title}&url=https://yajihum.dev/blog/posts/${tag}/${slug}`}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='Xでポストする'
+          className='px-2'
+        >
+          <SnsSvgWrapper
+            fill='currentColor'
+            className='h-6 w-6 md:h-6 md:w-6 text-neutral-300 hover:text-neutral-100'
+          >
+            {SVGElement.x}
+          </SnsSvgWrapper>
+        </a>
         <a
           href={`https://github.com/yajihum/yajihum.dev/blob/main/src/posts/${tag}/${slug}.md`}
           target='_blank'
@@ -57,7 +72,6 @@ export const Post = ({ tag, slug }: Props) => {
           GitHubで編集を提案
         </a>
       </section>
-      <Stamp />
     </div>
   );
 };
