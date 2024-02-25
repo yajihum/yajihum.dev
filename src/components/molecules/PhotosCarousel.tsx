@@ -27,7 +27,7 @@ const items: Items[] = [
   {
     name: 'ロリスとカラちゃん',
     'aria-label': 'ロリスとポケモンのカラナクシのぬいぐるみの写真',
-    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_to_kara.png',
+    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_to_kara.jpg',
   },
   {
     name: 'ニット帽を被ったロリス',
@@ -37,7 +37,7 @@ const items: Items[] = [
   {
     name: 'ブランケットを頭から被ったロリス',
     'aria-label': 'ブランケットを頭から被ったロリスの写真',
-    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Fmakimaki_rorisu.png',
+    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Fmakimaki_rorisu.jpg',
   },
   {
     name: 'お風呂で熱湯消毒されるぬいぐるみたち',
@@ -47,7 +47,7 @@ const items: Items[] = [
   {
     name: 'ブランケットをかけてお昼寝するピータンとロリス',
     'aria-label': 'ブランケットをかけてお昼寝するピータンとロリスの写真',
-    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Fpeetan_rorisu_neru.png',
+    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_peetan_neru.png',
   },
 ];
 
