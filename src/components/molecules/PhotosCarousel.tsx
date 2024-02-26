@@ -32,7 +32,7 @@ const items: Items[] = [
   {
     name: 'ニット帽を被ったロリス',
     'aria-label': '青い手作りニット帽を被ったロリスの写真',
-    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_knit_hat.png',
+    url: 'https://images.site.yajihum.dev/yajihum-dev-carousel%2Frorisu_knit_hat.jpg',
   },
   {
     name: 'ブランケットを頭から被ったロリス',
