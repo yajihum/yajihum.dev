@@ -77,7 +77,7 @@ export default function Home() {
             title="About"
             description="Here is my introduction and my social media links."
           />
-          <Card className="border border-neutral-700 bg-neutral-800 text-white backdrop-blur transition-colors">
+          <Card className="border border-neutral-700 bg-neutral-800 text-white backdrop-blur-sm transition-colors">
             <CardHeader className="grid grid-cols-1 gap-3">
               <CardTitle>
                 <p className="flex items-center gap-2 text-xl">

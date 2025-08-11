@@ -58,7 +58,7 @@ const LinkCard = async ({ href }: { href: string }) => {
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
 
   return (
-    <div className='rounded-xl border-4 bg-neutral-100 shadow shadow-neutral-300 transition-colors duration-300 hover:border-neutral-500 hover:bg-neutral-50'>
+    <div className='rounded-xl border-4 bg-neutral-100 shadow-sm shadow-neutral-300 transition-colors duration-300 hover:border-neutral-500 hover:bg-neutral-50'>
       <a
         href={href}
         target='_blank'
@@ -80,7 +80,7 @@ const LinkCard = async ({ href }: { href: string }) => {
             referrerPolicy='no-referrer'
             width={10}
             height={10}
-            className='!w-5 flex-shrink-0'
+            className='w-5! shrink-0'
           />
           <p className='m-4 text-xs text-neutral-600 md:text-sm'>
             {ogp.siteName}
