@@ -10,8 +10,8 @@ interface ImageResponse {
 }
 
 export const WEATHER_DEFAULT_IMAGE = {
-  url: '/star.svg',
-  alt: 'star icon',
+  url: '/blue-heart.svg',
+  alt: 'blue heart icon',
 } as const;
 
 export async function getTokyoWeatherImage(): Promise<ImageResponse> {
