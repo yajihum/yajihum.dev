@@ -53,6 +53,11 @@ const LinkCard = async ({ href }: { href: string }) => {
       'Content-Type': 'application/json',
     },
   });
+
+  if (!res.ok) {
+    return <a href={href}>{href}</a>;
+  }
+
   const ogp: OGP = await res.json();
 
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
@@ -122,6 +127,7 @@ const Anchor = ({ href, children, ...props }: AnchorProps) => {
       </section>
     );
   }
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <LinkCard href={href} />

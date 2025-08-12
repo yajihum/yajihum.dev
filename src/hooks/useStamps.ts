@@ -10,6 +10,12 @@ export const useStamps = (slug: string) => {
     const fetchStampList = async () => {
       try {
         const res = await fetch(`/api/stamps/${slug}`);
+
+        if (!res.ok) {
+          console.error('Failed to fetch stamps:', res.statusText);
+          return;
+        }
+
         const stampList: EmojiType[] = await res.json();
         setStamps(stampList);
       } catch (error) {

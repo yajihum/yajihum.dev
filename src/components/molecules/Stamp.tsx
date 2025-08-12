@@ -23,6 +23,13 @@ export const Stamp: React.FC<StampProps> = ({ slug, postName }) => {
       method: 'POST',
       body: JSON.stringify(selectedEmoji),
     });
+
+    if (!res.ok) {
+      console.error('Failed to add stamp:', res.statusText);
+      setOpen(false);
+      return;
+    }
+
     const emojiList: EmojiType[] = await res.json();
     updateStamps(emojiList);
     setOpen(false);
