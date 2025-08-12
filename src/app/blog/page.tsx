@@ -4,6 +4,8 @@ import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
 import { metadata, ogImageUrl } from '../layout';
 
+export const dynamic = 'force-dynamic';
+
 const title = 'Blog';
 const description = `A page featuring blog posts categorized under 'Tech' and 'Life'.`;
 

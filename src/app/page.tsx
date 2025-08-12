@@ -10,6 +10,8 @@ import Image from 'next/image';
 import { speakerDeckEmbeddings } from '../speacker-deck';
 import { metadata, ogImageUrl } from './layout';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata(): Promise<Metadata> {
   const baseMetadata = metadata;
 
