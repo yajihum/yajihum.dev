@@ -6,7 +6,6 @@ import {
 import { Stamp } from '@/components/molecules/Stamp';
 import { Tag, getPostBySlug } from '@/lib/blog';
 import { EMOJI_DOMAIN } from '@/lib/cloudflare';
-import { getStamps } from '@/lib/stamp';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import PostContent from './PostContent';
@@ -22,8 +21,6 @@ export const Post: React.FC<Props> = async ({ tag, slug }) => {
   if (!post) {
     redirect('/404');
   }
-
-  const stamps = await getStamps(slug);
 
   return (
     <div className="grid grid-cols-1 gap-12 py-4 md:py-8">
@@ -52,7 +49,7 @@ export const Post: React.FC<Props> = async ({ tag, slug }) => {
         <PostContent content={post.body.raw} />
       </section>
 
-      <Stamp stamps={stamps} postName={post.title} />
+      <Stamp slug={slug} postName={post.title} />
 
       <section className="flex items-center justify-between">
         <a

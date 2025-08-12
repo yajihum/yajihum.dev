@@ -25,6 +25,7 @@ const nextConfig = {
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
   },
+  serverComponentsExternalPackages: [],
 };
 
 module.exports = withContentlayer(withBundleAnalyzer(nextConfig));

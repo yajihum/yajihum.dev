@@ -1,5 +1,6 @@
 'use client';
 
+import { useStamps } from '@/hooks/useStamps';
 import { EmojiType, Picker } from 'ms-3d-emoji-picker';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -9,13 +10,13 @@ import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 
 interface StampProps {
-  stamps: EmojiType[];
+  slug: string;
   postName: string;
 }
 
-export const Stamp: React.FC<StampProps> = ({ stamps, postName }) => {
+export const Stamp: React.FC<StampProps> = ({ slug, postName }) => {
   const [open, setOpen] = useState(false);
-  const [selectedEmoji, setSelectedEmoji] = useState<EmojiType[]>(stamps);
+  const { stamps, updateStamps } = useStamps(slug);
 
   const handleSelectEmoji = async (selectedEmoji: EmojiType) => {
     const res = await fetch(`/api/stamps/${postName}`, {
@@ -23,7 +24,7 @@ export const Stamp: React.FC<StampProps> = ({ stamps, postName }) => {
       body: JSON.stringify(selectedEmoji),
     });
     const emojiList: EmojiType[] = await res.json();
-    setSelectedEmoji(emojiList);
+    updateStamps(emojiList);
     setOpen(false);
   };
 
@@ -57,7 +58,7 @@ export const Stamp: React.FC<StampProps> = ({ stamps, postName }) => {
         </PopoverContent>
       </Popover>
       <div className="flex gap-1 md:grid md:grid-flow-col md:grid-cols-none">
-        {selectedEmoji?.map((emoji) => (
+        {stamps?.map((emoji) => (
           <Image
             key={`${emoji.category} | ${emoji.name}`}
             src={emoji.url}
