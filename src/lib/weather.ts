@@ -22,7 +22,8 @@ export async function getTokyoWeatherImage(): Promise<ImageResponse> {
     );
 
     if (!response.ok) {
-      throw new Error('Weather API request failed');
+      console.error('Failed to fetch weather:', response.statusText);
+      return WEATHER_DEFAULT_IMAGE;
     }
 
     const data: WeatherData = await response.json();
