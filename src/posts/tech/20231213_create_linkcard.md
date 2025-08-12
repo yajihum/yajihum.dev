@@ -267,7 +267,7 @@ CLoudflareのアカウントの作成、wranglerでのログインを済ませ�
 https://reffect.co.jp/html/cloudflare-workers#Cloudflare_Workers
 
 その後、以下のコマンドを実行すればデプロイ完了です！
-```
+```bash
 npm run deploy
 ```
 

@@ -13,11 +13,11 @@ export function HeroiconsSvgWrapper({
 }: HeroiconsSvgWrapperProps) {
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      fill='none'
-      viewBox='0 0 24 24'
-      strokeWidth='1.7'
-      stroke='currentColor'
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.7"
+      stroke="currentColor"
       className={cn('h-5 w-5', className)}
       aria-label={ariaLabel}
     >
@@ -40,10 +40,10 @@ export function SnsSvgWrapper({
 }) {
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
-      role='img'
-      viewBox='0 0 24 24'
-      className={cn('h-9 w-9 md:h-11 md:w-11', className)}
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      viewBox="0 0 24 24"
+      className={className}
       fill={fill}
       aria-label={ariaLabel}
     >

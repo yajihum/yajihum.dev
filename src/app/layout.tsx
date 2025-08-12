@@ -1,6 +1,12 @@
 import BasicLayout from '@/components/layouts/BasicLayout';
 import type { Metadata } from 'next';
 import './globals.css';
+import { IBM_Plex_Sans_JP } from 'next/font/google';
+
+const font = IBM_Plex_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 const siteName = 'yajihum.dev';
 const description = `Yajihum's personal website`;
@@ -35,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='ja'>
-      <body>
+    <html lang="ja" className="dark">
+      <body className={font.className}>
         <BasicLayout>{children}</BasicLayout>
       </body>
     </html>
