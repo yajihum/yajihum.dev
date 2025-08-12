@@ -6,16 +6,16 @@ import { Post } from '../../_components/Post';
 
 export const dynamicParams = false;
 
-export type PostParams = {
-  params: {
-    slug: string;
-  };
-};
+interface PostParams {
+  params: Promise<{ slug: string }>;
+}
 
 export async function generateMetadata({
   params,
 }: PostParams): Promise<Metadata> {
-  const post = getPostBySlug('life', params.slug, [
+  const { slug } = await params;
+
+  const post = getPostBySlug('life', slug, [
     'title',
     'pubDate',
     'content',
@@ -49,6 +49,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function Page({ params }: PostParams) {
-  return <Post tag='life' slug={params.slug} />;
+export default async function Page({ params }: PostParams) {
+  const { slug } = await params;
+  return <Post tag="life" slug={slug} />;
 }

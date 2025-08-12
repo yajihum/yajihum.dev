@@ -1,6 +1,6 @@
 import H2WithId from '@/components/atoms/H2WithId';
 import { LinkToPage } from '@/components/atoms/LinkToPage';
-import PostLinks from '@/components/molecules/PostLinks';
+import { PostLinks } from '@/components/molecules/PostLinks';
 import { SnsLinks } from '@/components/molecules/SnsLinks';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { getPostsByTag } from '@/lib/blog';

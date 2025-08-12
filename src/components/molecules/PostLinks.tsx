@@ -10,7 +10,7 @@ type Props = {
   tag: Tag;
 };
 
-export default function PostLinks({ items, tag }: Props) {
+export const PostLinks: React.FC<Props> = ({ items, tag }) => {
   return (
     <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {items.map((post) => (
@@ -50,4 +50,4 @@ export default function PostLinks({ items, tag }: Props) {
       ))}
     </section>
   );
-}
+};
