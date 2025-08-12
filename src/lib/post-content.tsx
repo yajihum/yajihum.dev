@@ -58,31 +58,35 @@ const LinkCard = async ({ href }: { href: string }) => {
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
 
   return (
-    <div className='rounded-xl border-4 bg-neutral-100 shadow shadow-neutral-300 transition-colors duration-300 hover:border-neutral-500 hover:bg-neutral-50'>
+    <div className="not-prose my-4 rounded-xl border-4 bg-neutral-100 shadow-sm shadow-neutral-300">
       <a
         href={href}
-        target='_blank'
-        className='block px-4  pt-4 font-light text-black no-underline hover:text-black md:px-8 md:pb-2 md:pt-6'
-        rel='noreferrer'
+        target="_blank"
+        className="block px-4 pt-4 font-light text-black no-underline hover:text-black md:px-8"
+        rel="noreferrer"
       >
-        <div className='grid grid-cols-1 gap-2'>
-          {ogp.title && <p className='m-0 text-sm md:text-base'>{ogp.title}</p>}
+        <div className="grid grid-cols-1 gap-2">
+          {ogp.title && (
+            <p className="pb-2 text-sm md:text-base">{ogp.title}</p>
+          )}
           {ogp.description && (
-            <p className='m-0 line-clamp-2 text-xs text-neutral-600 md:text-sm'>
+            <p className="m-0 line-clamp-2 text-xs text-neutral-600 md:text-sm">
               {ogp.description}
             </p>
           )}
         </div>
-        <div className='flex items-center'>
+        <div className="flex items-center">
+          {/* hostの追加が必要になるので意図的にimgタグを使用 */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={ogp.faviconUrl}
             alt={`${ogp.siteName} website's favicon`}
-            referrerPolicy='no-referrer'
+            referrerPolicy="no-referrer"
             width={10}
             height={10}
-            className='!w-5 flex-shrink-0'
+            className="w-5! shrink-0"
           />
-          <p className='m-4 text-xs text-neutral-600 md:text-sm'>
+          <p className="m-4 text-xs text-neutral-600 md:text-sm">
             {ogp.siteName}
           </p>
         </div>
@@ -113,7 +117,7 @@ const Anchor = ({ href, children, ...props }: AnchorProps) => {
   if (checkTwitterLink(href)) {
     const tweetId = extractTweetId(href);
     return (
-      <section className='not-prose flex justify-center'>
+      <section className="not-prose flex justify-center">
         <Tweet id={tweetId} />
       </section>
     );
@@ -143,7 +147,7 @@ const Paragraph = ({ children }: ParagraphProps) => {
 
   if (Array.isArray(children) && isImage(children)) {
     return (
-      <div className='my-8 grid grid-cols-1 justify-items-center'>
+      <div className="my-8 grid grid-cols-1 justify-items-center">
         {children.map((child) => {
           return child;
         })}
@@ -155,7 +159,7 @@ const Paragraph = ({ children }: ParagraphProps) => {
     return <>{children}</>;
   }
 
-  return <p className='my-8'>{children}</p>;
+  return <p className="my-8">{children}</p>;
 };
 
 type CodeProps = ClassAttributes<HTMLElement> &
@@ -173,7 +177,7 @@ const CodeBlock = ({ className, children, node }: CodeProps) => {
   return (
     <>
       {filename && (
-        <div className='px-2 font-semibold md:px-0'>
+        <div className="px-2 font-semibold">
           <span>{filename}</span>
         </div>
       )}
@@ -192,12 +196,9 @@ const Pre = (props: PreProps) => {
   if (isValidElement(props.children) && props.children.type === 'code') {
     const childClassName = props.children.props.className;
     const childChildren = props.children.props.children;
-    console.log(props.children.props);
 
     return (
-      <pre
-        className={cn('grid grid-cols-1 gap-1 px-2 md:px-4', props.className)}
-      >
+      <pre className={cn('grid grid-cols-1 gap-1', props.className)}>
         <CodeBlock className={childClassName} node={props.children.props.node}>
           {childChildren}
         </CodeBlock>
@@ -206,7 +207,7 @@ const Pre = (props: PreProps) => {
   }
 
   return (
-    <pre className={cn('grid grid-cols-1 gap-3 px-2 md:px-4', props.className)}>
+    <pre className={cn('grid grid-cols-1 gap-1', props.className)}>
       {props.children}
     </pre>
   );

@@ -1,54 +1,43 @@
 import { metadata } from '@/app/layout';
-import { getPostBySlug, getPostsByTag } from '@/lib/blog';
+import { getPostBySlug } from '@/lib/blog';
 import { getOgpImageUrl } from '@/lib/cloudinary';
 import { Metadata } from 'next';
 import { Post } from '../../_components/Post';
 
-export const dynamicParams = false;
-
-export type PostParams = {
-  params: {
-    slug: string;
-  };
-};
+interface PostParams {
+  params: Promise<{ slug: string }>;
+}
 
 export async function generateMetadata({
   params,
 }: PostParams): Promise<Metadata> {
-  const post = getPostBySlug('life', params.slug, [
-    'title',
-    'pubDate',
-    'content',
-    'icon',
-  ]);
+  const { slug } = await params;
+
+  const post = getPostBySlug('life', slug);
   const baseMetadata = metadata;
-  const ogpImageUrl = getOgpImageUrl(post.title);
+
+  const title = post ? post.title : 'Life Post';
+  const description = post ? post.description : 'A life blog post.';
+  const ogpImageUrl = post ? getOgpImageUrl(post.title) : '';
 
   return {
-    title: post.title,
+    title,
     openGraph: {
       ...baseMetadata.openGraph,
-      title: post.title,
-      description: post.description,
+      title,
+      description,
       images: [ogpImageUrl],
     },
     twitter: {
       ...baseMetadata.twitter,
       images: [ogpImageUrl],
-      title: post.title,
-      description: post.description,
+      title,
+      description,
     },
   };
 }
 
-export function generateStaticParams() {
-  const posts = getPostsByTag('life', ['slug']);
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export default function Page({ params }: PostParams) {
-  return <Post tag='life' slug={params.slug} />;
+export default async function Page({ params }: PostParams) {
+  const { slug } = await params;
+  return <Post tag="life" slug={slug} />;
 }

@@ -1,3 +1,5 @@
+const { withContentlayer } = require('next-contentlayer');
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -20,6 +22,10 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    webVitalsAttribution: ['CLS', 'LCP'],
+  },
+  serverComponentsExternalPackages: [],
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = withContentlayer(withBundleAnalyzer(nextConfig));

@@ -1,4 +1,3 @@
-import Footer from '../Footer';
 import Header from '../Header';
 
 export default function BasicLayout({
@@ -7,12 +6,11 @@ export default function BasicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-neutral-900 text-white">
+    <div className="flex min-h-screen flex-col bg-neutral-900 text-neutral-50">
       <Header />
-      <main className="container mx-auto max-w-3xl flex-grow px-4 md:px-0">
+      <main className="container mx-auto max-w-3xl grow px-4 md:px-0">
         <Container>{children}</Container>
       </main>
-      <Footer />
     </div>
   );
 }

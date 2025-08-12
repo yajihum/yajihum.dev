@@ -1,11 +1,12 @@
 import { emojiListEntryPoint } from '@/lib/cloudflare';
 
-export const runtime = 'edge';
-
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } },
+  context: {
+    params: Promise<{ slug: string }>;
+  },
 ) {
+  const params = await context.params;
   const postName = params.slug;
 
   try {
@@ -33,12 +34,11 @@ export async function GET(
 
 export async function POST(
   request: Request,
-  {
-    params,
-  }: {
-    params: { slug: string };
+  context: {
+    params: Promise<{ slug: string }>;
   },
 ) {
+  const params = await context.params;
   const postName = params.slug;
   const selectedEmoji = await request.json();
 

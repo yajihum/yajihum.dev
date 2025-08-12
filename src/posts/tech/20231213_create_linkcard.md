@@ -1,6 +1,7 @@
 ---
 title: 'Cloudflare WorkersのHTMLRewriterを使ってリンクカードを実装する'
 description: ''
+published: true
 pubDate: '2023/12/14 0:23'
 tags: ['tech']
 icon: 'smilieys/39'
@@ -267,7 +268,7 @@ CLoudflareのアカウントの作成、wranglerでのログインを済ませ�
 https://reffect.co.jp/html/cloudflare-workers#Cloudflare_Workers
 
 その後、以下のコマンドを実行すればデプロイ完了です！
-```
+```bash
 npm run deploy
 ```
 
