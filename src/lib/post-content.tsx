@@ -58,7 +58,7 @@ const LinkCard = async ({ href }: { href: string }) => {
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
 
   return (
-    <div className="not-prose rounded-xl border-4 bg-neutral-100 shadow-sm shadow-neutral-300">
+    <div className="not-prose my-4 rounded-xl border-4 bg-neutral-100 shadow-sm shadow-neutral-300">
       <a
         href={href}
         target="_blank"

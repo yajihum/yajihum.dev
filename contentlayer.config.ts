@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -8,6 +8,11 @@ export const Post = defineDocumentType(() => ({
     title: {
       type: 'string',
       description: 'The title of the post',
+      required: true,
+    },
+    published: {
+      type: 'boolean',
+      description: 'Whether the post is published',
       required: true,
     },
     pubDate: {
@@ -57,10 +62,10 @@ export const Post = defineDocumentType(() => ({
       },
     },
   },
-}))
+}));
 
 export default makeSource({
   contentDirPath: 'src/posts',
   documentTypes: [Post],
   disableImportAliasWarning: true,
-})
+});
