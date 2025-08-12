@@ -1,19 +1,20 @@
-import { Items, Tag } from '@/lib/blog';
+import { Tag } from '@/lib/blog';
 import { EMOJI_DOMAIN } from '@/lib/cloudflare';
+import { Post } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SVGElement } from '../icons';
 import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
 type Props = {
-  items: Items[];
+  posts: Post[];
   tag: Tag;
 };
 
-export const PostLinks: React.FC<Props> = ({ items, tag }) => {
+export const PostLinks: React.FC<Props> = ({ posts, tag }) => {
   return (
     <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-      {items.map((post) => (
+      {posts.map((post) => (
         <article
           key={post.title}
           className="rounded-xl border border-neutral-700 bg-neutral-800 transition-colors duration-300 hover:bg-neutral-700"

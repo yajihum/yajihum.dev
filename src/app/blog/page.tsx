@@ -43,17 +43,7 @@ const PostsListByTag = ({ tag }: { tag: string }) => {
   return (
     <section className="grid grid-cols-1 gap-3">
       <H2WithId id={lowerCaseTag} title={tag} />
-      <PostLinks items={getPosts(lowerCaseTag)} tag={lowerCaseTag} />
+      <PostLinks posts={getPostsByTag(lowerCaseTag)} tag={lowerCaseTag} />
     </section>
   );
 };
-
-const getPosts = (tag: Tag) =>
-  getPostsByTag(tag, [
-    'title',
-    'description',
-    'pubDate',
-    'tags',
-    'icon',
-    'slug',
-  ]);

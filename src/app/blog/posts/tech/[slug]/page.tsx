@@ -4,8 +4,6 @@ import { getOgpImageUrl } from '@/lib/cloudinary';
 import { Metadata } from 'next';
 import { Post } from '../../_components/Post';
 
-export const dynamicParams = false;
-
 interface PostParams {
   params: Promise<{ slug: string }>;
 }
@@ -15,34 +13,33 @@ export async function generateMetadata({
 }: PostParams): Promise<Metadata> {
   const { slug } = await params;
 
-  const post = getPostBySlug('tech', slug, [
-    'title',
-    'pubDate',
-    'content',
-    'icon',
-  ]);
+  const post = getPostBySlug('tech', slug);
+
   const baseMetadata = metadata;
-  const ogpImageUrl = getOgpImageUrl(post.title);
+
+  const title = post ? post.title : 'Tech Post';
+  const description = post ? post.description : 'A tech blog post.';
+  const ogpImageUrl = post ? getOgpImageUrl(post.title) : '';
 
   return {
-    title: post.title,
+    title,
     openGraph: {
       ...baseMetadata.openGraph,
-      title: post.title,
-      description: post.description,
+      title,
+      description: post ? post.description : '',
       images: [ogpImageUrl],
     },
     twitter: {
       ...baseMetadata.twitter,
       images: [ogpImageUrl],
-      title: post.title,
-      description: post.description,
+      title,
+      description,
     },
   };
 }
 
 export function generateStaticParams() {
-  const posts = getPostsByTag('tech', ['slug']);
+  const posts = getPostsByTag('tech');
 
   return posts.map((post) => ({
     slug: post.slug,

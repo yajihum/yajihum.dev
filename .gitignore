@@ -39,3 +39,10 @@ next-env.d.ts
 
 # lighthouse
 .lighthouseci
+
+# cloudflare
+.open-next/
+.wrangler/
+
+# contentlayer
+.contentlayer

@@ -25,11 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const newPosts = getPostsByTag(
-    'tech',
-    ['title', 'description', 'pubDate', 'tags', 'icon', 'slug'],
-    4,
-  );
+  const newPosts = getPostsByTag('tech', 4);
 
   const weather = await getTokyoWeatherImage();
 
@@ -107,7 +103,7 @@ export default async function Home() {
           aria-label="blog"
         >
           <SectionTitle id="blog-new-posts" title="Blog / New Posts" />
-          <PostLinks items={newPosts} tag="tech" />
+          <PostLinks posts={newPosts} tag="tech" />
 
           <LinkToPage href="/blog" title="Blog Page" />
         </section>

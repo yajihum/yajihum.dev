@@ -8,6 +8,7 @@ import { Tag, getPostBySlug } from '@/lib/blog';
 import { EMOJI_DOMAIN } from '@/lib/cloudflare';
 import { getStamps } from '@/lib/stamp';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 import PostContent from './PostContent';
 
 type Props = {
@@ -15,13 +16,12 @@ type Props = {
   slug: string;
 };
 
-export const Post = async ({ tag, slug }: Props) => {
-  const post = getPostBySlug(tag, slug, [
-    'title',
-    'pubDate',
-    'content',
-    'icon',
-  ]);
+export const Post: React.FC<Props> = async ({ tag, slug }) => {
+  const post = getPostBySlug(tag, slug);
+
+  if (!post) {
+    redirect('/404');
+  }
 
   const stamps = await getStamps(slug);
 
@@ -49,7 +49,7 @@ export const Post = async ({ tag, slug }: Props) => {
       </div>
 
       <section className="rounded-xl p-1">
-        <PostContent content={post.content} />
+        <PostContent content={post.body.raw} />
       </section>
 
       <Stamp stamps={stamps} postName={post.title} />
