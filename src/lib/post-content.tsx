@@ -1,4 +1,5 @@
 import H2WithId from '@/components/atoms/H2WithId';
+import Image from 'next/image';
 import {
   AnchorHTMLAttributes,
   ClassAttributes,
@@ -112,12 +113,13 @@ const Anchor = ({ href, children, ...props }: AnchorProps) => {
     (!children.toString().startsWith('http') ||
       !children.toString().startsWith('https'));
 
-  if (isInlineLink)
+  if (isInlineLink) {
     return (
-      <a href={href} {...props}>
+      <a href={href} className="break-all" {...props}>
         {children}
       </a>
     );
+  }
 
   if (checkTwitterLink(href)) {
     const tweetId = extractTweetId(href);
@@ -148,7 +150,7 @@ type ParagraphProps = ClassAttributes<HTMLParagraphElement> &
   HTMLAttributes<HTMLParagraphElement> &
   ExtraProps;
 
-const Paragraph = ({ children }: ParagraphProps) => {
+const Paragraph = ({ children, node }: ParagraphProps) => {
   if (!children) return null;
 
   if (Array.isArray(children) && isImage(children)) {
@@ -163,6 +165,32 @@ const Paragraph = ({ children }: ParagraphProps) => {
 
   if (typeof children === 'object' && !Array.isArray(children)) {
     return <>{children}</>;
+  }
+
+  if (typeof children === 'string' && children.startsWith(':::note')) {
+    // noteの中身だけ取得し、改行で分割
+    const lines = children
+      .split('\n')
+      .filter((line) => line !== ':::note' && line !== ':::');
+
+    return (
+      <div className="flex gap-4 rounded-md border border-blue-500 bg-blue-900/20 p-4 text-blue-300">
+        <Image
+          src="/open-book.svg"
+          alt="Weather Label"
+          width={30}
+          height={30}
+          className="not-prose self-start"
+        />
+        <div className="flex flex-col">
+          {lines.map((line, index) => (
+            <p key={index} className="not-prose">
+              {line}
+            </p>
+          ))}
+        </div>
+      </div>
+    );
   }
 
   return <p className="my-8">{children}</p>;
