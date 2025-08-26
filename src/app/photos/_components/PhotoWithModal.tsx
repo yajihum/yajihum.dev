@@ -13,14 +13,21 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   const [isImageLoading, setIsImageLoading] = useState(false);
 
+  const handleExpand = () => {
+    setSelectedPhoto(photo);
+    setIsImageLoading(true);
+  };
+
+  const handleClose = () => {
+    setSelectedPhoto(null);
+    setIsImageLoading(false);
+  };
+
   return (
     <>
       <div className="flex items-center">
         <button
-          onClick={() => {
-            setSelectedPhoto(photo);
-            setIsImageLoading(true);
-          }}
+          onClick={handleExpand}
           className="m-auto cursor-pointer rounded-lg"
           aria-label={`${photo}を拡大表示`}
         >
@@ -31,7 +38,7 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
             className="max-h-[400px] object-contain transition-transform duration-200 hover:scale-105"
             width={500}
             height={400}
-            quality={50}
+            quality={40}
           />
         </button>
       </div>
@@ -39,10 +46,7 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
       {selectedPhoto && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm"
-          onClick={() => {
-            setSelectedPhoto(null);
-            setIsImageLoading(false);
-          }}
+          onClick={handleClose}
           role="dialog"
           aria-modal="true"
           aria-label="画像拡大表示"
@@ -76,7 +80,7 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
               width={1920}
               height={1080}
               className="h-full max-h-screen w-full max-w-screen object-contain"
-              quality={50}
+              quality={40}
               onLoad={() => setIsImageLoading(false)}
               onError={() => setIsImageLoading(false)}
             />
