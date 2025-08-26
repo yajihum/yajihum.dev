@@ -5,8 +5,6 @@ import {
 } from '@/components/icons/svg-wapper';
 import { Stamp } from '@/components/molecules/Stamp';
 import { Tag, getPostBySlug } from '@/lib/blog';
-import { EMOJI_DOMAIN } from '@/lib/cloudflare';
-import Image from 'next/image';
 import { redirect } from 'next/navigation';
 import PostContent from './PostContent';
 
@@ -23,27 +21,16 @@ export const Post: React.FC<Props> = async ({ tag, slug }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-12 py-4 md:py-8">
-      <div className="flex flex-col gap-6 md:gap-10">
-        <div className="flex justify-center">
-          <Image
-            src={`${EMOJI_DOMAIN}${post.icon}.png`}
-            alt="絵文字アイコン"
-            className="h-16 w-16 p-1 md:h-24 md:w-24"
-            width={64}
-            height={64}
-          />
+    <div className="grid grid-cols-1 gap-12 py-4 md:py-20">
+      <section className="grid grid-cols-1 gap-2 md:gap-4">
+        <h1 className="text-xl font-semibold md:text-3xl">{post.title}</h1>
+        <div className="flex items-center gap-1 text-xs text-neutral-300 md:text-sm">
+          <HeroiconsSvgWrapper className="h-4 w-4">
+            {SVGElement.calendar}
+          </HeroiconsSvgWrapper>
+          <time>{post.pubDate}</time>
         </div>
-        <section className="grid grid-cols-1 justify-items-center gap-2 md:gap-4">
-          <h1 className="text-xl font-semibold md:text-3xl">{post.title}</h1>
-          <div className="flex items-center gap-1 text-xs text-neutral-300 md:text-sm">
-            <HeroiconsSvgWrapper className="h-4 w-4">
-              {SVGElement.calendar}
-            </HeroiconsSvgWrapper>
-            <time>{post.pubDate}</time>
-          </div>
-        </section>
-      </div>
+      </section>
 
       <section className="rounded-xl p-1">
         <PostContent content={post.body.raw} />

@@ -101,7 +101,7 @@ export default async function Home() {
         </section>
 
         <section
-          className="grid grid-cols-1 place-items-stretch gap-3"
+          className="grid grid-cols-1 place-items-stretch gap-6"
           aria-label="blog"
         >
           <SectionTitle id="blog-new-posts" title="Blog / New Posts" />
