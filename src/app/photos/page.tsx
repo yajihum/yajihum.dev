@@ -4,6 +4,8 @@ import { getAllPhotos } from '@/lib/photos';
 import { Metadata } from 'next';
 import { metadata as baseMetadata, ogImageUrl } from '../layout';
 
+export const dynamic = 'force-static';
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Photos',
