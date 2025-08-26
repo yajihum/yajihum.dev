@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "generate-photos": "node scripts/generate-photo-list.js",
+    "compress-photos": "for file in public/photos/*.{jpg,JPG}; do [ -f \"$file\" ] && magick \"$file\" -quality 60 \"$file\" && echo \"圧縮完了: $(basename \"$file\")\"; done",
     "prebuild": "npm run generate-photos",
     "build": "next build",
     "start": "next start",
