@@ -3,7 +3,7 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface PhotoWithModalProps {
   photo: string;
@@ -11,19 +11,6 @@ interface PhotoWithModalProps {
 
 export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
-
-  // 画像のプリロード
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = `/photos/${photo}`;
-    document.head.appendChild(link);
-
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, [photo]);
 
   return (
     <>
