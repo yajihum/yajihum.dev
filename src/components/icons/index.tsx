@@ -65,6 +65,13 @@ export const SVGElement: { [key: string]: React.ReactNode } = {
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
   ),
   minus: <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />,
+  xMark: (
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M6 18 18 6M6 6l12 12"
+    />
+  ),
   x: (
     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
   ),

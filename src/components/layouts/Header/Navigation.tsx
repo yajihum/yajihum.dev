@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import SideBarContainer from './SideBarContainer';
 import { useLinks } from './data';
-import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const { links } = useLinks();
@@ -15,7 +14,7 @@ export default function Navigation() {
         <SideBarContainer />
       </div>
       <nav className="my-2 hidden items-end md:flex">
-        <ul className="grid grid-cols-2 justify-items-center gap-4">
+        <ul className="grid grid-cols-3 justify-items-center gap-4">
           {links.map((link) => {
             return (
               <li key={link.name}>
