@@ -7,17 +7,17 @@ import { metadata as baseMetadata, ogImageUrl } from '../layout';
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Photos',
-    description: 'やじはむの写真ギャラリー',
+    description: 'photos',
     openGraph: {
       ...baseMetadata.openGraph,
       title: 'Photos | yajihum.dev',
-      description: 'やじはむの写真ギャラリー',
+      description: 'photos',
       images: [ogImageUrl],
     },
     twitter: {
       ...baseMetadata.twitter,
       title: 'Photos | yajihum.dev',
-      description: 'やじはむの写真ギャラリー',
+      description: 'photos',
       images: [ogImageUrl],
     },
   };
