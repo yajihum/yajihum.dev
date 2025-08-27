@@ -1,5 +1,4 @@
 import PhotoWithModal from '@/app/photos/_components/PhotoWithModal';
-import H2WithId from '@/components/atoms/H2WithId';
 import { getAllPhotos } from '@/lib/photos';
 import { Metadata } from 'next';
 import { metadata as baseMetadata, ogImageUrl } from '../layout';
@@ -25,13 +24,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PhotosPage() {
   const photos = getAllPhotos();
+  const sortedPhotos = photos.toReversed();
 
   return (
     <div className="grid grid-cols-1 gap-10">
       <h1 className="text-3xl">Photos</h1>
 
       <div className="grid grid-cols-3 gap-1">
-        {photos.slice(0, 10).map((photo) => (
+        {sortedPhotos.map((photo) => (
           <PhotoWithModal key={photo} photo={photo} />
         ))}
       </div>

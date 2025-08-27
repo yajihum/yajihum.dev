@@ -39,7 +39,6 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
             width={200}
             height={200}
             quality={30}
-            sizes="(max-width: 768px) 33vw, 25vw"
           />
         </button>
       </div>
@@ -83,7 +82,6 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
               className="h-full max-h-screen w-full max-w-screen object-contain"
               quality={60}
               priority={true}
-              sizes="100vw"
               onLoad={() => setIsImageLoading(false)}
               onError={() => setIsImageLoading(false)}
             />
