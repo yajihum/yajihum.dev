@@ -31,15 +31,9 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
           className="h-full w-full cursor-pointer"
           aria-label={`${photo}を拡大表示`}
         >
-          <Image
-            src={`/photos/${photo}`}
-            alt={photo}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
-            width={200}
-            height={200}
-            quality={30}
-          />
+          <div className="h-full w-full bg-gray-300 flex items-center justify-center text-xs">
+            {photo}
+          </div>
         </button>
       </div>
 
