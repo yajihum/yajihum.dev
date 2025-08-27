@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import Navigation from './Navigation';
-import { getTokyoWeatherImage } from '@/lib/weather';
-import Image from 'next/image';
 
 export default async function Header() {
   return (
