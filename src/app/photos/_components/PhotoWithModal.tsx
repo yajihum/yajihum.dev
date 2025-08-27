@@ -37,7 +37,6 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
             className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
             width={200}
             height={200}
-            quality={30}
           />
         </button>
       </div>
@@ -76,13 +75,13 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
             <Image
               src={`/photos/${selectedPhoto}`}
               alt={selectedPhoto}
-              width={800}
-              height={600}
-              className="h-full max-h-screen w-full max-w-screen object-contain"
-              quality={60}
+              width={1000}
+              height={1000}
+              className="max-h-screen max-w-screen object-contain"
               priority={true}
               onLoad={() => setIsImageLoading(false)}
               onError={() => setIsImageLoading(false)}
+              quality={100}
             />
           </div>
         </div>
