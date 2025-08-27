@@ -24,7 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PhotosPage() {
   const photos = getAllPhotos();
-  const sortedPhotos = photos.toReversed();
+  // toReversedだとNext.jsのエラーになる
+  const sortedPhotos = photos.reverse();
 
   return (
     <div className="grid grid-cols-1 gap-10">

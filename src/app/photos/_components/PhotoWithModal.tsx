@@ -3,7 +3,7 @@
 import { SVGElement } from '@/components/icons';
 import { HeroiconsSvgWrapper } from '@/components/icons/svg-wapper';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface PhotoWithModalProps {
   photo: string;
@@ -31,9 +31,14 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
           className="h-full w-full cursor-pointer"
           aria-label={`${photo}を拡大表示`}
         >
-          <div className="h-full w-full bg-gray-300 flex items-center justify-center text-xs">
-            {photo}
-          </div>
+          <Image
+            src={`/photos/${photo}`}
+            alt={photo}
+            className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
+            width={200}
+            height={200}
+            quality={30}
+          />
         </button>
       </div>
 
