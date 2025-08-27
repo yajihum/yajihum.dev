@@ -29,9 +29,9 @@ export default async function PhotosPage() {
 
   return (
     <div className="grid grid-cols-1 gap-10">
-      <H2WithId id="photos" title="Photos" />
+      <h1 className="text-3xl">Photos</h1>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-3 gap-1">
         {sortedPhotos.map((photo) => (
           <PhotoWithModal key={photo} photo={photo} />
         ))}

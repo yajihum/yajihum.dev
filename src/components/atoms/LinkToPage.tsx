@@ -14,7 +14,7 @@ export const LinkToPage: React.FC<{
     >
       <p className="text-sm md:text-base">{title}</p>
       <HeroiconsSvgWrapper
-        className="h-5 w-5 text-blue-500 md:h-6 md:w-6"
+        className="h-5 w-5 md:h-6 md:w-6"
         aria-label={`${title}へ遷移する`}
       >
         {SVGElement[icon]}

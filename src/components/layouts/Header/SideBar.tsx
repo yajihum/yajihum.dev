@@ -22,7 +22,7 @@ export default function SideBar({
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetTrigger className="py-1">
-        <HeroiconsSvgWrapper className="h-6 w-6">
+        <HeroiconsSvgWrapper className="h-6 w-6 text-neutral-400">
           {SVGElement.humburger}
         </HeroiconsSvgWrapper>
       </SheetTrigger>
@@ -35,13 +35,9 @@ export default function SideBar({
                   className="flex w-full items-center justify-between bg-inherit px-0 text-white hover:bg-inherit"
                   onClick={() => handleLinkClick(link.href)}
                 >
-                  <div className="flex gap-2.5">
-                    <p className="text-right font-semibold">
-                      {link.name.toUpperCase()}
-                    </p>
-                  </div>
+                  <p className="text-right">{link.name}</p>
                   <HeroiconsSvgWrapper
-                    className="h-5 w-5 text-blue-400"
+                    className="h-5 w-5 text-neutral-200"
                     aria-label={`${link.name}へ遷移する`}
                   >
                     {SVGElement.chevronRight}

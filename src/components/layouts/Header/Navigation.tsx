@@ -19,7 +19,7 @@ export default function Navigation() {
             return (
               <li key={link.name}>
                 <Link
-                  className={cn('font-bold', link.color)}
+                  className={link.color}
                   href={link.href}
                   aria-disabled={link.disable}
                 >

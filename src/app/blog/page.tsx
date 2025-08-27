@@ -4,8 +4,6 @@ import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
 import { metadata, ogImageUrl } from '../layout';
 
-export const dynamic = 'force-dynamic';
-
 const title = 'Blog';
 const description = `A page featuring blog posts categorized under 'Tech' and 'Life'.`;
 
@@ -33,7 +31,7 @@ export function generateMetadata(): Metadata {
 export default function Blog() {
   return (
     <section className="grid grid-cols-1 gap-10">
-      <h1 className="text-3xl font-bold">Blog</h1>
+      <h1 className="text-3xl">Blog</h1>
       <PostsListByTag tag="Tech" />
       <PostsListByTag tag="Life" />
     </section>

@@ -25,19 +25,19 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
 
   return (
     <>
-      <div className="flex items-center">
+      <div className="aspect-square overflow-hidden">
         <button
           onClick={handleExpand}
-          className="m-auto cursor-pointer rounded-lg"
+          className="h-full w-full cursor-pointer"
           aria-label={`${photo}を拡大表示`}
         >
           <Image
             src={`/photos/${photo}`}
             alt={photo}
             loading="lazy"
-            className="max-h-[400px] object-contain transition-transform duration-200 hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
             width={500}
-            height={400}
+            height={500}
             quality={40}
           />
         </button>
@@ -51,7 +51,7 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
           aria-modal="true"
           aria-label="画像拡大表示"
         >
-          <div className="max-h-full max-w-full p-4">
+          <div className="max-h-full max-w-full md:p-4">
             <button
               onClick={() => {
                 setSelectedPhoto(null);

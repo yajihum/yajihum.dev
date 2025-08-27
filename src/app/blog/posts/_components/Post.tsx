@@ -21,9 +21,9 @@ export const Post: React.FC<Props> = async ({ tag, slug }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-12 py-4 md:py-20">
+    <div className="grid grid-cols-1 gap-12 py-10 md:py-20">
       <section className="grid grid-cols-1 gap-2 md:gap-4">
-        <h1 className="text-xl font-semibold md:text-3xl">{post.title}</h1>
+        <h1 className="text-xl font-semibold md:text-4xl">{post.title}</h1>
         <div className="flex items-center gap-1 text-xs text-neutral-300 md:text-sm">
           <HeroiconsSvgWrapper className="h-4 w-4">
             {SVGElement.calendar}

@@ -22,13 +22,6 @@ const snsLinks = [
     fill: '#3EA8FF',
   },
   {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/yajihum',
-    icon: SVGElement.instagram,
-    userName: '@yajihum',
-    fill: '#E4405F',
-  },
-  {
     name: 'Speaker Deck',
     url: 'https://speakerdeck.com/yajihum',
     icon: SVGElement.speakerDeck,

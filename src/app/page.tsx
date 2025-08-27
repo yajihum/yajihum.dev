@@ -50,7 +50,7 @@ export default async function Home() {
             )}
           </div>
 
-          <h1 className="text-center text-4xl font-bold md:text-6xl">
+          <h1 className="text-center text-4xl md:text-6xl">
             Hello, I&apos;m yajihum
           </h1>
         </div>
@@ -76,7 +76,7 @@ export default async function Home() {
               <p className="flex flex-col gap-1 text-zinc-300">
                 <span className="block">Frontend Engineer</span>
                 <span className="block text-sm md:text-base">
-                  ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...😴
+                  ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...
                 </span>
               </p>
 

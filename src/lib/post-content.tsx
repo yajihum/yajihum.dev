@@ -150,7 +150,7 @@ type ParagraphProps = ClassAttributes<HTMLParagraphElement> &
   HTMLAttributes<HTMLParagraphElement> &
   ExtraProps;
 
-const Paragraph = ({ children, node }: ParagraphProps) => {
+const Paragraph = ({ children }: ParagraphProps) => {
   if (!children) return null;
 
   if (Array.isArray(children) && isImage(children)) {

@@ -2,7 +2,7 @@
 title: 'Cloudflare WorkersのHTMLRewriterを使ってリンクカードを実装する'
 description: ''
 published: true
-pubDate: '2023/12/14 0:23'
+pubDate: '2023/12/14'
 tags: ['tech']
 icon: 'smilieys/39'
 ---

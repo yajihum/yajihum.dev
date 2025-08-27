@@ -2,7 +2,7 @@
 title: 'Astroで新しいブログサイトを作った'
 description: 'Next.jsのブログをAstroで作り直した'
 published: false
-pubDate: '2023/02/25 16:00'
+pubDate: '2023/02/25'
 tags: ['tech']
 icon: 'objects/159'
 ---
