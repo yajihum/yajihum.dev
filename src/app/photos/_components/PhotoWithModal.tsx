@@ -51,10 +51,7 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
         >
           <div className="max-h-full max-w-full md:p-4">
             <button
-              onClick={() => {
-                setSelectedPhoto(null);
-                setIsImageLoading(false);
-              }}
+              onClick={handleClose}
               className="absolute top-2 right-2 z-10 cursor-pointer rounded-full bg-black p-2 text-white md:top-4 md:right-4"
             >
               <HeroiconsSvgWrapper
@@ -75,8 +72,8 @@ export default function PhotoWithModal({ photo }: PhotoWithModalProps) {
             <Image
               src={`/photos/${selectedPhoto}`}
               alt={selectedPhoto}
-              width={1000}
-              height={1000}
+              width={800}
+              height={800}
               className="max-h-screen max-w-screen object-contain"
               priority={true}
               onLoad={() => setIsImageLoading(false)}
