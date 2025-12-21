@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'standalone',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -29,19 +29,6 @@ const nextConfig = {
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   serverExternalPackages: [],
-  async headers() {
-    return [
-      {
-        source: '/photos/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, s-maxage=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
 };
 
 module.exports = withContentlayer(withBundleAnalyzer(nextConfig));
