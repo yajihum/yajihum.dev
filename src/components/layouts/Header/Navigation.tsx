@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import SideBarContainer from './SideBarContainer';
 import { useLinks } from './data';

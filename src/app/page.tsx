@@ -4,13 +4,10 @@ import { PostLinks } from '@/components/molecules/PostLinks';
 import { SnsLinks } from '@/components/molecules/SnsLinks';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { getPostsByTag } from '@/lib/blog';
-import { getTokyoWeatherImage, WEATHER_DEFAULT_IMAGE } from '@/lib/weather';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { speakerDeckEmbeddings } from '../speacker-deck';
 import { metadata, ogImageUrl } from './layout';
-
-export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseMetadata = metadata;
@@ -29,26 +26,17 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Home() {
   const newPosts = getPostsByTag('tech', 4);
 
-  const weather = await getTokyoWeatherImage();
-
   return (
     <>
       <div className="grid grid-cols-1 gap-20">
-        <div className="grid grid-cols-1 gap-16 py-20 md:py-32">
-          <div className="grid grid-cols-1 gap-2">
-            <Image
-              src={weather.url}
-              alt={weather.alt}
-              width={200}
-              height={200}
-              className="mx-auto"
-            />
-            {weather !== WEATHER_DEFAULT_IMAGE && (
-              <p className="text-center text-sm text-neutral-400">
-                Current weather in Tokyo
-              </p>
-            )}
-          </div>
+        <div className="grid grid-cols-1 gap-16 py-14 md:py-24">
+          <Image
+            src="https://images.site.yajihum.dev/rorisu.png"
+            alt="Icon"
+            width={240}
+            height={240}
+            className="mx-auto"
+          />
 
           <h1 className="text-center text-4xl md:text-6xl">
             Hello, I&apos;m yajihum
@@ -60,28 +48,17 @@ export default async function Home() {
           aria-label="about"
         >
           <SectionTitle id="about" title="About" />
-          <div className="flex flex-col gap-8 py-0 md:flex-row md:gap-10 md:py-6">
-            <div>
-              <Image
-                src="https://images.site.yajihum.dev/rorisu.png"
-                alt="Icon"
-                width={120}
-                height={120}
-              />
-            </div>
+          <div className="md:py-6d flex flex-col justify-center gap-4 py-0">
+            <h2 className="text-xl md:text-3xl">やじはむ / yajihum</h2>
 
-            <div className="flex flex-col justify-center gap-4">
-              <h2 className="text-xl md:text-3xl">やじはむ / yajihum</h2>
+            <p className="flex flex-col gap-1 text-zinc-300">
+              <span className="block">Frontend Engineer</span>
+              <span className="block text-sm md:text-base">
+                ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...
+              </span>
+            </p>
 
-              <p className="flex flex-col gap-1 text-zinc-300">
-                <span className="block">Frontend Engineer</span>
-                <span className="block text-sm md:text-base">
-                  ぬいぐるみとヨルシカがとても好き。毎日ほっこり生きている...
-                </span>
-              </p>
-
-              <SnsLinks />
-            </div>
+            <SnsLinks />
           </div>
         </section>
 

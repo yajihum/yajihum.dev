@@ -18,7 +18,7 @@ const linkDatas = [
 export function useLinks() {
   const links = linkDatas.map((link) => {
     const color =
-      'text-neutral-400 transition-colors duration-300 hover:text-neutral-200';
+      'text-neutral-300 transition-colors duration-300 hover:text-neutral-100';
     return {
       ...link,
       disable: false,

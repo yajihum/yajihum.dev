@@ -22,7 +22,7 @@ export default function SideBar({
   return (
     <Sheet open={open} onOpenChange={handleOpenChange}>
       <SheetTrigger className="py-1">
-        <HeroiconsSvgWrapper className="h-6 w-6 text-neutral-400">
+        <HeroiconsSvgWrapper className="h-6 w-6 text-neutral-300">
           {SVGElement.humburger}
         </HeroiconsSvgWrapper>
       </SheetTrigger>

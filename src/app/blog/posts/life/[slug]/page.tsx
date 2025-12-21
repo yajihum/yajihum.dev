@@ -1,5 +1,5 @@
 import { metadata } from '@/app/layout';
-import { getPostBySlug } from '@/lib/blog';
+import { getPostBySlug, getPostsByTag } from '@/lib/blog';
 import { getOgpImageUrl } from '@/lib/cloudinary';
 import { Metadata } from 'next';
 import { Post } from '../../_components/Post';
@@ -35,6 +35,13 @@ export async function generateMetadata({
       description,
     },
   };
+}
+
+export async function generateStaticParams() {
+  const posts = getPostsByTag('life');
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default async function Page({ params }: PostParams) {
