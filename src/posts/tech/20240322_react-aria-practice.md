@@ -3,7 +3,7 @@ title: 'React Ariaでアクセシビリティを考慮した実装をする（�
 description: 'React AriaはAdobeから提供されているReact向けのライブラリで、アクセシビリティを重視したコンポーネント作成を手助けしてくれるものです。React Ariaを使用することで適切な属性の付与と操作が可能になりますが、アクセシビリティの高いデザイン実装は自分で行う必要があります。今回はReact Aria（React Aria Components）を触ってアクセシビリティを学びながらStorybook上で動かし、テストも行ってみます。'
 published: true
 pubDate: '2024/04/13'
-tags: ['tech']
+tags: ['tech', 'a11y']
 icon: 'symbols/156'
 ---
 

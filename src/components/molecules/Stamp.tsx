@@ -36,20 +36,20 @@ export const Stamp: React.FC<StampProps> = ({ slug, postName }) => {
   };
 
   return (
-    <section className="flex flex-col gap-4 p-1 md:flex-row md:justify-between md:gap-0">
+    <section className="flex flex-col gap-4 p-1 md:flex-row md:items-center md:justify-between md:gap-0">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger className="h-9 w-9 shrink-0 cursor-pointer md:h-10 md:w-10">
-          <p className="flex shrink-0 items-center justify-center rounded-lg bg-neutral-800 p-1.5">
+          <p className="flex shrink-0 items-center justify-center rounded-full border border-neutral-800 bg-neutral-900 p-1.5 transition-colors hover:border-neutral-700 hover:bg-neutral-800">
             {open ? (
               <HeroiconsSvgWrapper
-                className="h-6 w-6"
+                className="h-5 w-5 text-neutral-400"
                 aria-label="絵文字ピッカーを閉じる"
               >
                 {SVGElement.minus}
               </HeroiconsSvgWrapper>
             ) : (
               <SmilePlus
-                className="h-6 w-6"
+                className="h-5 w-5 text-neutral-400"
                 aria-label="絵文字ピッカーを開く"
               />
             )}
@@ -64,7 +64,7 @@ export const Stamp: React.FC<StampProps> = ({ slug, postName }) => {
           <Picker isOpen={open} handleEmojiSelect={handleSelectEmoji} />
         </PopoverContent>
       </Popover>
-      <div className="flex gap-1 md:grid md:grid-flow-col md:grid-cols-none">
+      <div className="flex gap-1.5 md:grid md:grid-flow-col md:grid-cols-none">
         {stamps?.map((emoji) => (
           <Image
             key={`${emoji.category} | ${emoji.name}`}
@@ -72,7 +72,7 @@ export const Stamp: React.FC<StampProps> = ({ slug, postName }) => {
             alt={emoji.name}
             width={36}
             height={36}
-            className="h-9 w-9 rounded-lg bg-neutral-800 p-1 md:h-10 md:w-10"
+            className="h-9 w-9 rounded-full border border-neutral-800 bg-neutral-900 p-1 md:h-10 md:w-10"
           />
         ))}
       </div>

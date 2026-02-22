@@ -3,7 +3,7 @@ title: 'HonoXを使ってみたよ'
 description: '最近正式にリリースされたHonoXを使って新しいサイトを作りました。'
 published: true
 pubDate: '2024/03/17'
-tags: ['tech']
+tags: ['tech', 'HonoX']
 icon: 'travel-and-place/216'
 ---
 

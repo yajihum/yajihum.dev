@@ -3,7 +3,7 @@ title: 'TypeScriptのパフォーマンス改善'
 description: 'TypeScriptのパフォーマンスを上げるTipsを紹介'
 published: true
 pubDate: '2024/02/22'
-tags: ['tech']
+tags: ['tech', 'TypeScript']
 icon: 'people/231'
 ---
 

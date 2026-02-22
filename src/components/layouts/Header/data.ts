@@ -1,4 +1,5 @@
 import { SVGElement } from '@/components/icons';
+import { usePathname } from 'next/navigation';
 
 export type LinkType = {
   name: string;
@@ -10,17 +11,23 @@ export type LinkType = {
 };
 
 const linkDatas = [
-  { name: 'Home', href: '/', icon: SVGElement.home, current: true },
-  { name: 'Blog', href: '/blog', icon: SVGElement.blog, current: false },
-  { name: 'Photos', href: '/photos', icon: SVGElement.camera, current: false },
+  { name: 'Home', href: '/', icon: SVGElement.home },
+  { name: 'Blog', href: '/blog', icon: SVGElement.blog },
 ];
 
 export function useLinks() {
+  const pathname = usePathname();
+
   const links = linkDatas.map((link) => {
+    const isActive =
+      link.href === '/'
+        ? pathname === '/'
+        : pathname.startsWith(link.href);
     const color =
-      'text-neutral-300 transition-colors duration-300 hover:text-neutral-100';
+      'text-neutral-400 transition-colors duration-300 hover:text-neutral-100';
     return {
       ...link,
+      current: isActive,
       disable: false,
       color,
     };

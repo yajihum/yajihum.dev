@@ -32,16 +32,19 @@ const snsLinks = [
 
 export const SnsLinks = () => {
   return (
-    <ul className="flex gap-6 py-2">
-      {snsLinks.map((link) => (
-        <li key={link.name} className="my-auto">
+    <ul className="flex items-center gap-4 py-2">
+      {snsLinks.map((link, index) => (
+        <li key={link.name} className="flex items-center gap-4">
+          {index > 0 && (
+            <span className="text-neutral-700">/</span>
+          )}
           <a
             href={link.url}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-4 text-neutral-400 hover:text-neutral-200"
+            className="flex items-center text-neutral-500 transition-colors hover:text-neutral-200"
           >
-            <SnsSvgWrapper className="size-5 md:size-6" fill="currentColor">
+            <SnsSvgWrapper className="size-4 md:size-5" fill="currentColor">
               {link.icon}
             </SnsSvgWrapper>
           </a>
