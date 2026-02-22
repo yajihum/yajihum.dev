@@ -1,9 +1,7 @@
 import { BlogCards } from '@/components/molecules/BlogCards';
-import { PhotoCards } from '@/components/molecules/PhotoCards';
 import { SnsLinks } from '@/components/molecules/SnsLinks';
 import SpeachLinks from '@/components/molecules/SpeachLinks';
 import { getPostsByTag } from '@/lib/blog';
-import { getAllPhotos } from '@/lib/photos';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -27,7 +25,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const newPosts = getPostsByTag('tech', 4);
-  const photos = getAllPhotos().reverse();
 
   return (
     <>
@@ -102,25 +99,6 @@ export default async function Home() {
           <SpeachLinks speackerDeckEmbeddings={speakerDeckEmbeddings} />
         </section>
 
-        {/* Photos */}
-        <section
-          className="grid grid-cols-1 gap-6 border-t border-neutral-800 pt-10 md:grid-cols-[140px_1fr] md:gap-12"
-          aria-label="photos"
-        >
-          <div className="flex flex-col gap-2">
-            <h2 className="text-xs font-medium tracking-[0.2em] text-neutral-300">
-              PHOTOS
-            </h2>
-            <Link
-              href="/photos"
-              className="flex items-center gap-0.5 text-sm text-neutral-400 transition-colors hover:text-neutral-100"
-            >
-              All
-              <ChevronRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-          <PhotoCards photos={photos} />
-        </section>
       </div>
     </>
   );

@@ -13,7 +13,6 @@ export type LinkType = {
 const linkDatas = [
   { name: 'Home', href: '/', icon: SVGElement.home },
   { name: 'Blog', href: '/blog', icon: SVGElement.blog },
-  { name: 'Photos', href: '/photos', icon: SVGElement.camera },
 ];
 
 export function useLinks() {
