@@ -1,8 +1,6 @@
 import { Tag } from '@/lib/blog';
 import { Post } from 'contentlayer/generated';
 import Link from 'next/link';
-import { SVGElement } from '../icons';
-import { HeroiconsSvgWrapper } from '../icons/svg-wapper';
 
 type Props = {
   posts: Post[];
@@ -11,21 +9,38 @@ type Props = {
 
 export const PostLinks: React.FC<Props> = ({ posts, tag }) => {
   return (
-    <section className="grid grid-cols-1 gap-4">
-      {posts.map((post) => (
-        <div className="flex h-full flex-col gap-2" key={post.title}>
-          <div className="flex flex-col gap-1.5">
-            <Link
-              href={`/blog/posts/${tag}/${post.slug}`}
-              className="font-semibold text-neutral-300 underline-offset-2 hover:underline"
-            >
+    <div className="flex flex-col">
+      {posts.map((post) => {
+        const topicTag = post.tags.find(
+          (t: string) => t !== 'tech' && t !== 'life',
+        );
+        return (
+          <Link
+            key={post.title}
+            href={`/blog/posts/${tag}/${post.slug}`}
+            className="group border-b border-neutral-800/80 py-4 first:pt-0 last:border-b-0 last:pb-0"
+          >
+            <p className="text-sm text-neutral-400 transition-colors group-hover:text-white md:text-base">
               {post.title}
-            </Link>
-
-            <time className="text-xs text-neutral-400">{post.pubDate}</time>
-          </div>
-        </div>
-      ))}
-    </section>
+            </p>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <time className="text-xs text-neutral-500">
+                {post.pubDate}
+              </time>
+              {post.tags
+                .filter((t: string) => t !== 'tech' && t !== 'life')
+                .map((t: string) => (
+                  <span
+                    key={t}
+                    className="rounded-md bg-neutral-800 px-2 py-0.5 text-xs text-neutral-400"
+                  >
+                    {t}
+                  </span>
+                ))}
+            </div>
+          </Link>
+        );
+      })}
+    </div>
   );
 };

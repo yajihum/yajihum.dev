@@ -12,21 +12,19 @@ export default function Navigation() {
       <div className="block md:hidden">
         <SideBarContainer />
       </div>
-      <nav className="my-2 hidden items-end md:flex">
-        <ul className="grid grid-cols-3 justify-items-center gap-4">
-          {links.map((link) => {
-            return (
-              <li key={link.name}>
-                <Link
-                  className={link.color}
-                  href={link.href}
-                  aria-disabled={link.disable}
-                >
-                  <p className="text-md">{link.name}</p>
-                </Link>
-              </li>
-            );
-          })}
+      <nav className="hidden items-center md:flex">
+        <ul className="flex items-center gap-5">
+          {links.map((link) => (
+            <li key={link.name}>
+              <Link
+                className="text-sm text-neutral-400 transition-colors hover:text-neutral-100"
+                href={link.href}
+                aria-disabled={link.disable}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

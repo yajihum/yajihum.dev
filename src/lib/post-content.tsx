@@ -1,7 +1,9 @@
+import CopyButton from '@/components/atoms/CopyButton';
 import H2WithId from '@/components/atoms/H2WithId';
 import Image from 'next/image';
 import {
   AnchorHTMLAttributes,
+  Children,
   ClassAttributes,
   HTMLAttributes,
   ReactNode,
@@ -27,14 +29,14 @@ const H2 = ({
 
   if (id === 'footnote-label') {
     return (
-      <H2WithId id={id} hasBorder={true}>
+      <H2WithId id={id} hasBorder={false}>
         脚注
       </H2WithId>
     );
   }
 
   return (
-    <H2WithId id={title} hasBorder={true}>
+    <H2WithId id={title} hasBorder={false}>
       {children}
     </H2WithId>
   );
@@ -64,24 +66,24 @@ const LinkCard = async ({ href }: { href: string }) => {
   if (!ogp || !ogp.title) return <a href={href}>{href}</a>;
 
   return (
-    <div className="not-prose my-4 rounded-xl border-4 bg-neutral-100 shadow-sm shadow-neutral-300">
+    <div className="not-prose my-4 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 transition-colors hover:border-neutral-700 hover:bg-neutral-800/70">
       <a
         href={href}
         target="_blank"
-        className="block px-4 pt-4 font-light text-black no-underline hover:text-black md:px-8"
+        className="grid grid-cols-1 gap-2 px-5 py-4 no-underline md:px-6"
         rel="noreferrer"
       >
-        <div className="grid grid-cols-1 gap-2">
-          {ogp.title && (
-            <p className="pb-2 text-sm md:text-base">{ogp.title}</p>
-          )}
-          {ogp.description && (
-            <p className="m-0 line-clamp-2 text-xs text-neutral-600 md:text-sm">
-              {ogp.description}
-            </p>
-          )}
-        </div>
-        <div className="flex items-center">
+        {ogp.title && (
+          <p className="truncate text-sm font-medium text-neutral-200 md:text-base">
+            {ogp.title}
+          </p>
+        )}
+        {ogp.description && (
+          <p className="m-0 line-clamp-1 text-xs text-neutral-500">
+            {ogp.description}
+          </p>
+        )}
+        <div className="flex items-center gap-1.5">
           {/* hostの追加が必要になるので意図的にimgタグを使用 */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -90,9 +92,9 @@ const LinkCard = async ({ href }: { href: string }) => {
             referrerPolicy="no-referrer"
             width={10}
             height={10}
-            className="w-5! shrink-0"
+            className="h-4 w-4 shrink-0 rounded-sm"
           />
-          <p className="m-4 text-xs text-neutral-600 md:text-sm">
+          <p className="m-0 text-xs text-neutral-600">
             {ogp.siteName}
           </p>
         </div>
@@ -207,15 +209,23 @@ type NodeData = {
 const CodeBlock = ({ className, children, node }: CodeProps) => {
   const meta = (node?.data as NodeData)?.meta;
   const filename = meta ? meta.replace(':', '') : '';
+  const isBlock = className?.includes('hljs');
+  const codeText = isBlock
+    ? extractText(children).replace(/\n$/, '')
+    : '';
 
   return (
     <>
       {filename && (
-        <div className="px-2 font-semibold">
+        <div className="px-2 font-semibold text-neutral-500">
           <span>{filename}</span>
         </div>
       )}
-      <code className={cn('scrollbar-dark break-all', className)}>
+      <code
+        className={cn('scrollbar-dark break-all', isBlock && 'relative block', className)}
+        style={isBlock ? { padding: '1.5em', borderRadius: '0.5rem' } : undefined}
+      >
+        {isBlock && <CopyButton text={codeText} />}
         {children}
       </code>
     </>
@@ -226,22 +236,24 @@ type PreProps = ClassAttributes<HTMLPreElement> &
   HTMLAttributes<HTMLPreElement> &
   ExtraProps;
 
-const Pre = (props: PreProps) => {
-  if (isValidElement(props.children) && props.children.type === 'code') {
-    const childClassName = props.children.props.className;
-    const childChildren = props.children.props.children;
-
-    return (
-      <pre className={cn('grid grid-cols-1 gap-1', props.className)}>
-        <CodeBlock className={childClassName} node={props.children.props.node}>
-          {childChildren}
-        </CodeBlock>
-      </pre>
+const extractText = (node: ReactNode): string => {
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (!node) return '';
+  if (Array.isArray(node)) return node.map(extractText).join('');
+  if (isValidElement(node)) {
+    return extractText(
+      Children.toArray(
+        (node.props as { children?: ReactNode }).children,
+      ),
     );
   }
+  return '';
+};
 
+const Pre = (props: PreProps) => {
   return (
-    <pre className={cn('grid grid-cols-1 gap-1', props.className)}>
+    <pre className={cn('group grid grid-cols-1 gap-2', props.className)}>
       {props.children}
     </pre>
   );

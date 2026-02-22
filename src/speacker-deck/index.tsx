@@ -2,6 +2,7 @@ export type SpeakerDeckEmbedding = {
   title: string;
   date: string;
   event: string;
+  tags: string[];
   speakerDeckUrl: string;
   embedding: JSX.Element;
 };
@@ -11,6 +12,7 @@ export const speakerDeckEmbeddings = [
     title: 'TypeScriptのパフォーマンス改善',
     date: '2024/05/11',
     event: 'TSKaigi',
+    tags: ['TypeScript', 'Performance'],
     speakerDeckUrl:
       'https://speakerdeck.com/yajihum/typescriptnopahuomansugai-shan',
     embedding: (
@@ -38,6 +40,7 @@ export const speakerDeckEmbeddings = [
     title: 'アクセシビリティを考慮したUI/CSSフレームワーク・ライブラリ選定',
     date: '2024/04/20',
     event: 'BARフロントえんどう #2 「CSS Library / Framework」',
+    tags: ['a11y', 'CSS'],
     speakerDeckUrl:
       'https://speakerdeck.com/yajihum/csshuremuwakuraiburarixuan-ding',
     embedding: (
@@ -65,6 +68,7 @@ export const speakerDeckEmbeddings = [
     title: 'フロントエンドにおける テスト方針〜Testing Trophyの概念とBDD〜',
     date: '2023/10/25',
     event: 'CTOA若手エンジニアコミュニティ 勉強会 #4',
+    tags: ['Testing', 'BDD'],
     speakerDeckUrl:
       'https://speakerdeck.com/yajihum/hurontoendoniokeru-tesutofang-zhen-testing-trophynogai-nian-tobdd',
     embedding: (
@@ -94,6 +98,7 @@ export const speakerDeckEmbeddings = [
       'Cloudflare R2 + Reactを使って 絵文字ピッカーのnpmパッケージを作ってみた',
     date: '2023/08/30',
     event: 'はじめまして！若手エンジニアふんわりLT Night！',
+    tags: ['React', 'Cloudflare'],
     speakerDeckUrl:
       'https://speakerdeck.com/yajihum/cloudflare-r2-plus-reactwoshi-tute-hui-wen-zi-pitukanonpmpatukeziwozuo-tutemita',
     embedding: (

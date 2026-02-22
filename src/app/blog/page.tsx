@@ -1,4 +1,3 @@
-import H2WithId from '@/components/atoms/H2WithId';
 import { PostLinks } from '@/components/molecules/PostLinks';
 import { Tag, getPostsByTag } from '@/lib/blog';
 import { Metadata } from 'next';
@@ -30,8 +29,7 @@ export function generateMetadata(): Metadata {
 
 export default function Blog() {
   return (
-    <section className="grid grid-cols-1 gap-10">
-      <h1 className="text-3xl">Blog</h1>
+    <section className="grid grid-cols-1 gap-20 py-6">
       <PostsListByTag tag="Tech" />
       <PostsListByTag tag="Life" />
     </section>
@@ -40,10 +38,19 @@ export default function Blog() {
 
 const PostsListByTag = ({ tag }: { tag: string }) => {
   const lowerCaseTag = tag.toLowerCase() as Tag;
+  const posts = getPostsByTag(lowerCaseTag);
   return (
-    <section className="grid grid-cols-1 gap-3">
-      <H2WithId id={lowerCaseTag} title={tag} />
-      <PostLinks posts={getPostsByTag(lowerCaseTag)} tag={lowerCaseTag} />
+    <section className="grid grid-cols-1 gap-6 border-t border-neutral-800 pt-8 md:grid-cols-[140px_1fr] md:gap-12">
+      <div className="flex flex-col gap-1">
+        <h2
+          id={lowerCaseTag}
+          className="text-xs font-medium tracking-[0.2em] text-neutral-300"
+        >
+          {tag.toUpperCase()}
+        </h2>
+        <p className="text-xs text-neutral-500">{posts.length} posts</p>
+      </div>
+      <PostLinks posts={posts} tag={lowerCaseTag} />
     </section>
   );
 };
