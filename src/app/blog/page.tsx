@@ -29,7 +29,7 @@ export function generateMetadata(): Metadata {
 
 export default function Blog() {
   return (
-    <section className="grid grid-cols-1 gap-20 py-6">
+    <section className="grid grid-cols-1 gap-20 pt-10 pb-6 md:pt-16">
       <PostsListByTag tag="Tech" />
       <PostsListByTag tag="Life" />
     </section>
