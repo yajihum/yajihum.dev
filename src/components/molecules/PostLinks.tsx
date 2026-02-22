@@ -20,11 +20,11 @@ export const PostLinks: React.FC<Props> = ({ posts, tag }) => {
             href={`/blog/posts/${tag}/${post.slug}`}
             className="group border-b border-neutral-800/80 py-4 first:pt-0 last:border-b-0 last:pb-0"
           >
-            <p className="text-sm text-neutral-400 transition-colors group-hover:text-white md:text-base">
+            <p className="text-base text-neutral-300 transition-colors group-hover:text-white md:text-base">
               {post.title}
             </p>
             <div className="mt-2 flex flex-wrap items-center gap-2">
-              <time className="text-xs text-neutral-500">
+              <time className="text-sm text-neutral-500">
                 {post.pubDate}
               </time>
               {post.tags
@@ -32,7 +32,7 @@ export const PostLinks: React.FC<Props> = ({ posts, tag }) => {
                 .map((t: string) => (
                   <span
                     key={t}
-                    className="rounded-md bg-neutral-800 px-2 py-0.5 text-xs text-neutral-400"
+                    className="rounded-md bg-neutral-800 px-2 py-0.5 text-sm text-neutral-400"
                   >
                     {t}
                   </span>

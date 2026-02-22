@@ -28,7 +28,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-20">
+      <div className="grid grid-cols-1 gap-20 pb-16 md:pb-24">
         <section
           className="flex flex-col items-center gap-5 pt-10 pb-4 md:pt-28 md:pb-20"
           aria-label="about"
