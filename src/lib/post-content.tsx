@@ -221,13 +221,21 @@ const CodeBlock = ({ className, children, node }: CodeProps) => {
           <span>{filename}</span>
         </div>
       )}
-      <code
-        className={cn('scrollbar-dark break-all', isBlock && 'relative block', className)}
-        style={isBlock ? { padding: '1.5em', borderRadius: '0.5rem' } : undefined}
-      >
-        {isBlock && <CopyButton text={codeText} />}
-        {children}
-      </code>
+      {isBlock ? (
+        <div className="relative">
+          <CopyButton text={codeText} />
+          <code
+            className={cn('scrollbar-dark break-all block', className)}
+            style={{ padding: '1.5em', borderRadius: '0.5rem' }}
+          >
+            {children}
+          </code>
+        </div>
+      ) : (
+        <code className={cn('scrollbar-dark break-all', className)}>
+          {children}
+        </code>
+      )}
     </>
   );
 };

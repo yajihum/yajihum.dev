@@ -20,7 +20,7 @@ export default function H2WithId({
     <h2
       id={id}
       className={cn(
-        'h2-hover relative pt-14 flex scroll-mt-20 items-center gap-1 text-base md:gap-0 md:text-xl',
+        'h2-hover relative pt-14 flex scroll-mt-20 items-center gap-1 text-xl md:gap-0 md:text-2xl',
         borderClass,
       )}
     >
